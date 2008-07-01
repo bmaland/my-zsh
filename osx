@@ -1,3 +1,4 @@
 # (-*- shell-script -*-)
 
 unalias ls
+alias o="open"

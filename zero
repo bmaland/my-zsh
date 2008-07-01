@@ -3,4 +3,5 @@ export ADAPTER="postgresql"
 export DATABASE="datamapper"
 export USERNAME="bjorn"
 export JAVA_HOME=/Library/Java/Home
+export BROWSER="open"
 

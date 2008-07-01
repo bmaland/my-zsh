@@ -8,9 +8,6 @@ remove_orphans() {
   if [ `pacman -Qdt|wc -l` -gt 0 ]; then remove_orphans; fi
 }
 
-export BROWSER="epiphany"
-export BROWSER_OPTIONS="-n"
-
 # pacman
 alias q="pacman -Q|grep -i"
 alias s="pacman -Ss |grep -i"
