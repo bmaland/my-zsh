@@ -2,3 +2,6 @@
 
 unalias ls
 alias o="open"
+export BROWSER="open"
+alias emacs="open -a /Applications/Aquamacs\ Emacs.app/"
+
