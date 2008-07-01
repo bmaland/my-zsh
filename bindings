@@ -8,3 +8,5 @@ bindkey '\C-z' undo # both C-z and C-x u
 bindkey '\C-i' complete-word
 bindkey '\C-w' backward-delete-word
 bindkey '\C-x' kill-region
+bindkey . rationalise-dot
+

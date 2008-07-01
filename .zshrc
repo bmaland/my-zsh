@@ -1,9 +1,9 @@
 # Loads up teh files
 
 source ~/.zsh/basic
+source ~/.zsh/functions
 source ~/.zsh/bindings
 source ~/.zsh/aliases
-source ~/.zsh/functions
 
 # Load os specific settings
 if [ -f /etc/debian_version ]; then

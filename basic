@@ -56,15 +56,19 @@ export LESS="-iMSx4 -FX --quiet"
 export LANG="nn_NO.UTF-8"
 export LC_ALL="nn_NO.UTF-8"
 export LC_CTYPE="nn_NO.UTF-8"
-export FCEDIT="emacs"
-export EDITOR="emacs"
-export SVN_EDITOR="emacs"
-export VISUAL="emacs"
+export EDITOR="emacs -nw --no-site-file"
+export FCEDIT=$EDITOR
+export SVN_EDITOR=$EDITOR
+export VISUAL=$EDITOR
 
 # Completion Styles
 
 # Specify list of hosts for completion
 zstyle '*' hosts bogus.uib.no haman zero sleep obvcode.net springbrettet.org demo.web-master.no
+
+# Cache
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
 
 # Expand man pages
 zstyle ':completion:*:manuals' separate-sections true

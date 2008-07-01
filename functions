@@ -1,6 +1,17 @@
 # (-*- shell-script -*-)
 # Shared functions
 
+# Quick dirchange
+rationalise-dot() {
+  if [[ $LBUFFER = *.. ]]; then
+    LBUFFER+=/..
+  else
+    LBUFFER+=.
+  fi
+}
+
+zle -N rationalise-dot
+
 gemdoc() {
   local gemdir=`gem env gemdir`
   $BROWSER $BROWSER_OPTIONS $gemdir/doc/`ls $gemdir/doc/ | grep $1 | sort | tail -1`/rdoc/index.html
