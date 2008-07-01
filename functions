@@ -35,10 +35,12 @@ sdel() {
 	svn status | grep "^\!" | awk -F "      " '{ printf("\"%s\"\n", $2) }' | xargs svn delete
 }
 
+# NOTE: this is probably obsolete since hg commit -A
 hdel() {
 	hg st | grep "^\!" | awk '{ printf("\"%s\"\n", $2) }' | xargs hg rm
 }
 
+# Deletes files that are unkown in the hg repos
 hdelu() {
 	hg st | grep "^\?" | awk '{ printf("\"%s\"\n", $2) }' | xargs rm
 }
@@ -50,3 +52,80 @@ rm_svn() {
 ds_clean() {
 	find "$@" -name .DS_Store -print0 | xargs -0 rm
 }
+
+# Simple heuristics for determining the current projects scm.
+# There surely is a smarter way to do this than setting shell variables
+# but it's the best I can come up with atm
+set_scm() {
+  GIT=0
+  SVN=0
+	HG=0
+
+	if [ `git status 2>/dev/null | wc -l` -gt 0 ]; then
+		GIT=1
+	elif [ `svn st 2>/dev/null | wc -l` -gt 0 ]; then
+		SVN=1
+	elif [ `hg parents 2>/dev/null | wc -l` -gt 0 ]; then
+		HG=1
+	fi
+}
+
+# Passes on any args to the current scm binary
+scm() {
+  set_scm
+	if [ $GIT -eq 1 ]; then
+		git $@
+	elif [ $SVN -eq 1 ]; then
+		svn $@
+	elif [ $HG -eq 1 ]; then
+		hg $@
+	fi
+}
+
+# SCM commit
+sci() {
+	set_scm
+	if [ $GIT -eq 1 ]; then
+		if [ -z $@ ]; then
+			git commit -a -m
+		else
+			git commit -a -m $@
+		fi
+	elif [ $SVN -eq 1 ]; then
+		svn ci -m $@
+	elif [ $HG -eq 1 ]; then
+		if [ -z $@ ]; then
+			hg commit -A
+		else
+			hg commit -A -m $@
+		fi
+	fi
+}
+
+# SCM update
+scu() {
+	set_scm
+	if [ $GIT -eq 1 ]; then
+		git pull
+	elif [ $SVN -eq 1 ]; then
+		svn up
+	elif [ $HG -eq 1 ]; then
+		hg pull
+		hg update
+	fi
+}
+
+# SCM log
+scl() {
+	scm log | less
+}
+
+# SCM status
+scs() {
+	scm st
+}
+
+scd() {
+	scm diff
+}
+
