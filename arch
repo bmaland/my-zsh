@@ -1,0 +1,18 @@
+# (-*- shell-script -*-)
+# Specific for Arch Linux
+
+remove_orphans() {
+  for pkg in `pacman -Qdt|awk -F ' ' '{ printf("%s\n", $1) }'`; do
+    sudo pacman -R $pkg
+  done
+  if [ `pacman -Qdt|wc -l` -gt 0 ]; then remove_orphans; fi
+}
+
+export BROWSER="epiphany"
+export BROWSER_OPTIONS="-n"
+
+# pacman
+alias q="pacman -Q|grep -i"
+alias s="pacman -Ss |grep -i"
+alias sin="sudo pacman -Sy"
+alias sup="sudo pacman -Syu"

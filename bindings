@@ -1,0 +1,10 @@
+# (-*- shell-script -*-)
+
+# Key bindings
+bindkey "^r" history-incremental-search-backward
+bindkey "^p" history-search-backward
+bindkey ' ' magic-space    # also do history expansion on space, for i.e !:1
+bindkey '\C-z' undo # both C-z and C-x u
+bindkey '\C-i' complete-word
+bindkey '\C-w' backward-delete-word
+bindkey '\C-x' kill-region

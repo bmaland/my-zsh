@@ -1,0 +1,5 @@
+# (-*- shell-script -*-)
+
+# SHELL VARIABLES
+
+export PATH="/home/bjorn/mosml/bin:/opt/java/bin:/opt/local/bin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin:/usr/bin/perlbin/site:/usr/bin/perlbin/vendor:/usr/bin/perlbin/core"

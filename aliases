@@ -1,0 +1,63 @@
+# (-*- shell-script -*-)
+# Common aliases
+
+alias ls='ls --color=auto '
+alias f="find . |grep -i"
+alias h="history"
+alias l="less"
+alias m="more"
+alias c="clear"
+alias cl="clear ; ls -laF"
+alias psg="ps aux | grep"
+alias trail="tail -n 300 -f"
+
+alias emacs="emacs -nw --no-site-file"
+alias vi="vim" # Default to vim
+
+# command L equivalent to command |less
+alias -g L='|less' 
+
+# command S equivalent to command &> /dev/null &
+alias -g S='&> /dev/null &'
+
+# Ruby
+alias irb="irb --readline -r irb/completion"
+alias ri="ri -Tf ansi"
+
+# Rails
+alias ss="./script/server"
+alias sc="./script/console"
+alias sg="./script/generate"
+alias sp="./script/plugin"
+alias devlog="tail -F log/development.log"
+alias rem="rake db:migrate VERSION=0 && rake db:migrate"
+alias remm="rake db:drop && rake db:create && rake db:migrate"
+alias mig="rake db:migrate"
+
+# gem
+alias g="gem list -r | grep -i"
+alias gin="sudo gem install"
+alias gup="sudo gem update"
+
+# git
+alias gst="git status"
+alias gb="git branch --color"
+alias gcm="git commit -a -v"
+alias gco="git checkout"
+
+# Set up auto extension stuff
+alias -s html=$BROWSER
+alias -s org=$BROWSER
+alias -s php=$BROWSER
+alias -s com=$BROWSER
+alias -s net=$BROWSER
+alias -s png=feh
+alias -s jpg=feh
+alias -s gif=feg
+alias -s sxw=soffice
+alias -s doc=soffice
+alias -s gz=tar -xzvf
+alias -s bz2=tar -xjvf
+alias -s java=$EDITOR
+alias -s txt=$EDITOR
+alias -s PKGBUILD=$EDITOR

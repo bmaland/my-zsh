@@ -1,0 +1,41 @@
+# (-*- shell-script -*-)
+# Shared functions
+
+gemdoc() {
+  local gemdir=`gem env gemdir`
+  $BROWSER $BROWSER_OPTIONS $gemdir/doc/`ls $gemdir/doc/ | grep $1 | sort | tail -1`/rdoc/index.html
+}
+
+_gemdoc() {
+  compadd $(ls `gem env gemdir`/doc)
+}
+
+compdef _gemdoc gemdoc
+
+zipdir() {
+	zip "$@".zip -r "$@" -x "*/.DS_Store" "*/.gitignore" "*/.hgignore" "*/.hgtags" "*/.svn/*" "*/.git/*" "*/.hg/*"
+}
+
+sall() {
+	svn status | grep "^\?" | awk -F "      " '{ printf("\"%s\"\n", $2) }' | xargs svn add
+}
+
+sdel() {
+	svn status | grep "^\!" | awk -F "      " '{ printf("\"%s\"\n", $2) }' | xargs svn delete
+}
+
+hdel() {
+	hg st | grep "^\!" | awk '{ printf("\"%s\"\n", $2) }' | xargs hg rm
+}
+
+hdelu() {
+	hg st | grep "^\?" | awk '{ printf("\"%s\"\n", $2) }' | xargs rm
+}
+
+rm_svn() {
+	find "$@" -name .svn -print0 | xargs -0 rm -rf
+}
+
+ds_clean() {
+	find "$@" -name .DS_Store -print0 | xargs -0 rm
+}

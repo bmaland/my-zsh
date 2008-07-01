@@ -1,0 +1,123 @@
+# (-*- shell-script -*-)
+
+# Set/unset  shell options
+setopt CORRECT      # command CORRECTION
+setopt nobeep
+setopt AUTO_CD
+setopt INC_APPEND_HISTORY SHARE_HISTORY
+setopt APPEND_HISTORY
+setopt EXTENDED_HISTORY    # puts timestamps in the history
+setopt histverify  # check new lines after modification
+setopt hist_ignore_dups # ignores consecutive duplicate lines
+unsetopt BG_NICE    # do NOT nice bg commands
+#setopt MENUCOMPLETE
+setopt ALL_EXPORT
+setopt notify globdots correct pushdtohome cdablevars autolist
+setopt correctall autocd recexact longlistjobs
+setopt autoresume histignoredups pushdsilent 
+setopt autopushd pushdminus extendedglob rcquotes mailwarning
+setopt noglobalrcs # ignore /etc/zshrc etc
+unsetopt autoparamslash
+
+# Autoload zsh modules when they are referenced
+zmodload -a zsh/stat stat
+zmodload -a zsh/zpty zpty
+zmodload -a zsh/zprof zprof
+#zmodload -ap zsh/mapfile mapfile
+
+autoload -U compinit
+compinit
+
+limit coredumpsize 0
+
+# type a directory's name to cd to it.
+compctl -/ cd
+
+# History
+HISTSIZE=5000
+SAVEHIST=5000
+HISTFILE=~/.history
+
+# SHELL VARIABLES
+# Prompt
+PS1="$(print '%{\e[1;31m%}%m%{\e[0m%}'):%~ $ "
+
+# Default path
+export PATH="/opt/local/bin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin"
+
+export LIBXCB_ALLOW_SLOPPY_LOCK=true
+
+export CLICOLOR="yes"
+export GREP_OPTIONS='--color=auto' 
+export GREP_COLOR='1;36'
+export PAGER=less
+export LESS="-iMSx4 -FX --quiet"
+
+export LANG="nn_NO.UTF-8"
+export LC_ALL="nn_NO.UTF-8"
+export LC_CTYPE="nn_NO.UTF-8"
+export FCEDIT="emacs"
+export EDITOR="emacs"
+export SVN_EDITOR="emacs"
+export VISUAL="emacs"
+
+# Completion Styles
+
+# Specify list of hosts for completion
+zstyle '*' hosts bogus.uib.no haman zero sleep obvcode.net springbrettet.org demo.web-master.no
+
+# Expand man pages
+zstyle ':completion:*:manuals' separate-sections true
+
+# list of completers to use
+zstyle ':completion:*::::' completer _expand _complete _ignored _approximate
+
+# allow one error for every three characters typed in approximate completer
+zstyle -e ':completion:*:approximate:*' max-errors \
+    'reply=( $(( ($#PREFIX+$#SUFFIX)/2 )) numeric )'
+    
+# insert all expansions for expand completer
+zstyle ':completion:*:expand:*' keep-prefix true tag-order all-expansions
+#zstyle ':completion:*:epand:*' glob false
+
+# formatting and messages
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:descriptions' format '%B%d%b'
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:warnings' format 'No matches for: %d'
+zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-separator '#'
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+zstyle ':completion:*:prefix:*' add-space true
+
+# Ignore
+zstyle ':completion:*:*files' ignored-patterns '*?.o' '*?~'
+zstyle ':completion:*:*cd:*' ignored-patterns '(*/|)(CVS|SCCS|SVN|GIT|HG)'
+zstyle ':completion::*:(git|less|rm|emacs)' ignore-line true
+zstyle ':completion:*' ignore-parents parent pwd
+
+# match uppercase from lowercase
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# offer indexes before parameters in subscripts
+zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
+
+# command for process lists, the local web server details and host completion
+# on processes completion complete all user processes
+zstyle ':completion:*:processes' command 'ps -au$USER'
+
+## add colors to processes for kill completion
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+
+# SSH Completion
+zstyle ':completion:*:scp:*' tag-order \
+   files users 'hosts:-host hosts:-domain:domain hosts:-ipaddr"IP\ Address *'
+zstyle ':completion:*:scp:*' group-order \
+   files all-files users hosts-domain hosts-host hosts-ipaddr
+zstyle ':completion:*:ssh:*' tag-order \
+   users 'hosts:-host hosts:-domain:domain hosts:-ipaddr"IP\ Address *'
+zstyle ':completion:*:ssh:*' group-order \
+   hosts-domain hosts-host users hosts-ipaddr
+zstyle '*' single-ignored show
