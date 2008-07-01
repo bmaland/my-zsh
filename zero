@@ -1,0 +1,6 @@
+export GEM_HOME="/opt/local/lib/ruby/gems/1.8"
+export ADAPTER="postgresql"
+export DATABASE="datamapper"
+export USERNAME="bjorn"
+export JAVA_HOME=/Library/Java/Home
+
