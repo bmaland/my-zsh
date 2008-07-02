@@ -56,12 +56,9 @@ alias -g C='| wc -l'
 alias -g L='|less' # command L equivalent to command |less
 alias -g S='&> /dev/null &' # command S equivalent to command &> /dev/null &
 
-# Set up auto extension stuff
+# Set up cross platform auto extensions
 alias -s {html, php, org, com, net}=$BROWSER
 alias -s {txt,PKGBUILD,rb,py,lisp,sml,c,php,js}=$EDITOR
-alias -s {jpeg,jpg,JPEG,JPG,png,gif,xpm}=mirage
-alias -s {avi,mkv,mpg,mpeg,vmw,mov,rm}=vlc
-alias -s pdf=epdfview
 alias -s gz=tar -xzvf
 alias -s bz2=tar -xjvf
-
+alias -s zip=unzip

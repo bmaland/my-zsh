@@ -5,3 +5,5 @@ alias o="open"
 export BROWSER="open"
 alias emacs="open -a /Applications/Aquamacs\ Emacs.app/"
 
+# open ftw
+alias -s {doc,odt,rtf,jpeg,jpg,JPEG,JPG,png,gif,xpm,avi,mkv,mpg,mpeg,vmw,mov,rm,pdf}=open
