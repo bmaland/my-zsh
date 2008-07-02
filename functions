@@ -122,7 +122,7 @@ scl() {
 
 # SCM status
 scs() {
-	scm st
+	scm status
 }
 
 scd() {
