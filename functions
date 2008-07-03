@@ -65,7 +65,7 @@ set_scm() {
     GIT=1
   elif [ `svn st 2>/dev/null | wc -l` -gt 0 ]; then
     SVN=1
-  elif [ `hg parents 2>/dev/null | wc -l` -gt 0 ]; then
+  elif [ `hg tip 2>/dev/null | wc -l` -gt 0 ]; then
     HG=1
   fi
 }
