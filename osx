@@ -1,10 +1,15 @@
 # (-*- shell-script -*-)
 
+alias s="port list | grep -i"
+alias q="port installed active | grep -i"
+alias sin="sudo port install"
+alias sup="sudo port -d selfupdate && port outdated"
+
 alias o="open"
 
 alias emacs="open -a /Applications/Aquamacs\ Emacs.app/"
 
-export EDITOR="open -a /Applications/Aquamacs\ Emacs.app/"
+export EDITOR=emacs
 
 export FCEDIT=$EDITOR
 export SVN_EDITOR=$EDITOR

@@ -7,7 +7,7 @@ source ~/.zsh/aliases
 
 # Load os specific settings
 
-if [ ! -f /etc/appletalk.cfg ]; then
+if [ ! -d /Users ]; then
   source ~/.zsh/linux
 
   if [ -f /etc/debian_version ]; then
