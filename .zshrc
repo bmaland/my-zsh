@@ -6,10 +6,15 @@ source ~/.zsh/bindings
 source ~/.zsh/aliases
 
 # Load os specific settings
-if [ -f /etc/debian_version ]; then
-	source ~/.zsh/debian
-elif [ -f /etc/arch-release ]; then
-	source ~/.zsh/arch
+
+if [ ! -f /etc/appletalk.cfg ]; then
+  source ~/.zsh/linux
+
+  if [ -f /etc/debian_version ]; then
+	  source ~/.zsh/debian
+  elif [ -f /etc/arch-release ]; then
+	  source ~/.zsh/arch
+  fi
 else
 	source ~/.zsh/osx
 fi

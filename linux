@@ -1,0 +1,15 @@
+# (-*- shell-script -*-)
+# Linux specific stuff
+
+alias ls='ls --color=auto '
+alias emacs="emacs -nw --no-site-file"
+
+export EDITOR=emacs
+export FCEDIT=$EDITOR
+export SVN_EDITOR=$EDITOR
+export VISUAL=$EDITOR
+
+alias e=$EDITOR
+
+alias -s {txt,PKGBUILD,rb,py,lisp,sml,c,php,js}=$EDITOR
+

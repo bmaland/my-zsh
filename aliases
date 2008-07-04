@@ -1,7 +1,6 @@
 # (-*- shell-script -*-)
 # Common aliases
 
-alias ls='ls --color=auto '
 alias f="find . |grep -i"
 alias h="history"
 alias l="less"
@@ -12,8 +11,6 @@ alias cal="cal -m"
 alias psg="ps aux | grep"
 alias trail="tail -n 300 -f"
 
-alias e=$EDITOR
-alias emacs="emacs -nw --no-site-file"
 alias vi="vim" # Default to vim
 
 # Ruby
@@ -36,7 +33,6 @@ alias gin="sudo gem install"
 alias gup="sudo gem update"
 
 # git
-alias gst="git status"
 alias gb="git branch --color"
 alias gcm="git commit -a -v"
 alias gco="git checkout"
@@ -59,8 +55,6 @@ alias -g L='|less' # command L equivalent to command |less
 alias -g S='&> /dev/null &' # command S equivalent to command &> /dev/null &
 
 # Set up cross platform auto extensions
-alias -s {html, php, org, com, net}=$BROWSER
-alias -s {txt,PKGBUILD,rb,py,lisp,sml,c,php,js}=$EDITOR
 alias -s gz=tar -xzvf
 alias -s bz2=tar -xjvf
 alias -s zip=unzip

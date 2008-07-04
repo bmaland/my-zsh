@@ -10,6 +10,7 @@ export PATH="/home/bjorn/mosml/bin:/opt/java/bin:/opt/local/bin:/usr/local/bin:/
 
 export BROWSER="epiphany -n"
 
+alias -s {html, php, org, com, net}=$BROWSER
 alias -s {jpeg,jpg,JPEG,JPG,png,gif,xpm}=mirage
 alias -s {avi,mkv,mpg,mpeg,vmw,mov,rm}=vlc
 alias -s pdf=epdfview

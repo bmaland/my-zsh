@@ -67,6 +67,8 @@ set_scm() {
     SVN=1
   elif [ `hg tip 2>/dev/null | wc -l` -gt 0 ]; then
     HG=1
+  else
+    echo "SCM not found - does this directory contain a repos?"
   fi
 }
 

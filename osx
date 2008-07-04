@@ -1,15 +1,25 @@
 # (-*- shell-script -*-)
 
-unalias ls
-
 alias o="open"
+
 alias emacs="open -a /Applications/Aquamacs\ Emacs.app/"
 
-# open ftw
-alias -s {doc,odt,rtf,jpeg,jpg,JPEG,JPG,png,gif,xpm,avi,mkv,mpg,mpeg,vmw,mov,rm,pdf}=open
+export EDITOR="open -a /Applications/Aquamacs\ Emacs.app/"
+
+export FCEDIT=$EDITOR
+export SVN_EDITOR=$EDITOR
+export VISUAL=$EDITOR
+
+alias e=$EDITOR
 
 export BROWSER="open"
+
+alias -s {txt,PKGBUILD,rb,py,lisp,sml,c,php,js}=$EDITOR
+
+# open ftw
+alias -s {html,php,org,com,netdoc,odt,rtf,jpeg,jpg,JPEG,JPG,png,gif,xpm,avi,mkv,mpg,mpeg,vmw,mov,rm,pdf}=open
 
 # Avoid "unsupported locale"-errors on osx - setting lang vars back to default
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
+
