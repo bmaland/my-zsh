@@ -1,0 +1,5 @@
+# (-*- shell-script -*-)
+
+# SHELL VARIABLES
+
+export CDPATH="/Users/bjorn/Sites:/Users/bjorn/foss"
