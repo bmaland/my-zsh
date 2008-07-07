@@ -1,7 +1,8 @@
 # (-*- shell-script -*-)
 # Linux specific stuff
 
-alias ls='ls --color=auto '
+alias reboot="sudo reboot"
+alias ls="ls --color=auto "
 alias emacs="emacs -nw --no-site-file"
 
 export EDITOR=emacs
