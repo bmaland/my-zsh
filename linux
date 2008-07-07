@@ -12,5 +12,5 @@ export VISUAL=$EDITOR
 
 alias e=$EDITOR
 
-alias -s {txt,PKGBUILD,rb,py,lisp,sml,c,php,js}=$EDITOR
+alias -s {PKGBUILD,rb,py,lisp,sml,php,js}=$EDITOR
 

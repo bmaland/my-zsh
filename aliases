@@ -55,6 +55,7 @@ alias -g L='|less' # command L equivalent to command |less
 alias -g S='&> /dev/null &' # command S equivalent to command &> /dev/null &
 
 # Set up cross platform auto extensions
-alias -s gz=tar -xzvf
-alias -s bz2=tar -xjvf
+alias -s gz="tar -zxvf"
+alias -s bz2="tar -jxvf"
 alias -s zip=unzip
+alias -s txt=less
