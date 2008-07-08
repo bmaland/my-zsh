@@ -10,7 +10,10 @@ source ~/.zsh/aliases
 if [ ! -f /etc/appletalk.cfg ]; then
   source ~/.zsh/linux
 
-  if [ -f /etc/debian_version ]; then
+  # Try to figure out which distro we are on
+	if [ -f /etc/popularity-contest.conf ]; then
+		source ~/.zsh/ubuntu
+  elif [ -f /etc/debian_version ]; then
 	  source ~/.zsh/debian
   elif [ -f /etc/arch-release ]; then
 	  source ~/.zsh/arch
