@@ -3,3 +3,5 @@
 # SHELL VARIABLES
 
 export CDPATH="/Users/bjorn/Sites:/Users/bjorn/foss"
+
+alias wget="curl -O"
