@@ -10,7 +10,7 @@ alias cl="clear ; ls -laF"
 alias cal="cal -m"
 alias psg="ps aux | grep"
 alias trail="tail -n 300 -f"
-
+alias screen="screen -U"
 alias vi="vim" # Default to vim
 
 # Ruby
