@@ -1,16 +1,19 @@
-# Loads up teh files
+# Bjørn Arild Mæland's Zsh Configuration
 
+# General configuration that applies to all platforms
 source ~/.zsh/basic
 source ~/.zsh/functions
 source ~/.zsh/bindings
 source ~/.zsh/aliases
 
 # Load os specific settings
-
 if [ ! -d /Users ]; then
   source ~/.zsh/linux
 
-  if [ -f /etc/debian_version ]; then
+  # Try to figure out which distro we are on and load its config
+	if [ -f /etc/popularity-contest.conf ]; then
+		source ~/.zsh/ubuntu
+  elif [ -f /etc/debian_version ]; then
 	  source ~/.zsh/debian
   elif [ -f /etc/arch-release ]; then
 	  source ~/.zsh/arch

@@ -63,7 +63,7 @@ set_scm() {
 
   if [ `git status 2>/dev/null | wc -l` -gt 0 ]; then
     GIT=1
-  elif [ `svn st 2>/dev/null | wc -l` -gt 0 ]; then
+  elif [ `svn info 2>/dev/null | wc -l` -gt 0 ]; then
     SVN=1
   elif [ `hg tip 2>/dev/null | wc -l` -gt 0 ]; then
     HG=1

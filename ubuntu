@@ -1,5 +1,5 @@
 # (-*- shell-script -*-)
-# Debian specifics
+# Ubuntu specifics
 
 # apache
 alias as="sudo /etc/init.d/apache2 stop"
@@ -9,5 +9,4 @@ alias ar="sudo /etc/init.d/apache2 restart"
 # apt/aptitute
 alias s="apt-cache search"
 alias sin="sudo aptitude install"
-alias sup="sudo aptitude update && sudo aptitude upgrade"
-
+alias sup="sudo aptitude update && sudo aptitude safe-upgrade"

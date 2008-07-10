@@ -1,7 +1,9 @@
 # (-*- shell-script -*-)
 # Linux specific stuff
 
-alias ls='ls --color=auto '
+alias shutdown="sudo shutdown"
+alias reboot="sudo reboot"
+alias ls="ls --color=auto "
 alias emacs="emacs -nw --no-site-file"
 
 export EDITOR=emacs
@@ -11,5 +13,5 @@ export VISUAL=$EDITOR
 
 alias e=$EDITOR
 
-alias -s {txt,PKGBUILD,rb,py,lisp,sml,c,php,js}=$EDITOR
+alias -s {rb,py,lisp,sml,php,js,html}=$EDITOR
 
