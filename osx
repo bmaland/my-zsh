@@ -1,5 +1,10 @@
 # (-*- shell-script -*-)
 
+# Hopefully temporary, but atm I cant get alt to both work as a meta key in zsh
+# and function as a modifier key for i.e ~ on my Norwegian MacBook keyboard
+bindkey "\C-b" backward-word
+bindkey "\C-f" forward-word
+
 # Package management
 alias s="port list | grep -i"
 alias q="port installed active | grep -i"

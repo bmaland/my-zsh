@@ -13,6 +13,7 @@ alias trail="tail -n 300 -f"
 alias screen="screen -U"
 alias srd="screen -U -r -d"
 alias vi="vim" # Default to vim
+alias x="exit"
 
 # Ruby
 alias irb="irb --readline -r irb/completion"
@@ -26,11 +27,13 @@ alias sp="./script/plugin"
 alias devlog="tail -F log/development.log"
 alias rem="rake db:migrate VERSION=0 && rake db:migrate"
 alias remm="rake db:drop && rake db:create && rake db:migrate"
-alias mig="rake db:migrate"
+alias rdm="rake db:migrate"
+alias rdmp="RAILS_ENV=production rake db:migrate"
 
 # gem
 alias g="gem list -r | grep -i"
 alias gin="sudo gem install"
+alias gun="sudo gem uninstall"
 alias gup="sudo gem update"
 
 # git
