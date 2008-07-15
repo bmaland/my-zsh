@@ -2,11 +2,10 @@
 
 # SHELL VARIABLES
 
-export CDPATH="/Users/bjorn/foss:/Users/bjorn/foss/ruby:/Users/bjorn/Webdev"
+export CDPATH="/Users/bjorn/foss:/Users/bjorn/foss/ruby:/Users/bjorn/Webdev:/Users/bjorn/work"
 
 export GEM_HOME="/opt/local/lib/ruby/gems/1.8"
 export ADAPTER="postgresql"
 export DATABASE="datamapper"
 export USERNAME="bjorn"
 export JAVA_HOME="/Library/Java/Home"
-

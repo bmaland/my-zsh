@@ -11,6 +11,7 @@ alias cal="cal -m"
 alias psg="ps aux | grep"
 alias trail="tail -n 300 -f"
 alias screen="screen -U"
+alias srd="screen -U -r -d"
 alias vi="vim" # Default to vim
 
 # Ruby
