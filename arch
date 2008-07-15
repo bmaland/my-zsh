@@ -12,4 +12,5 @@ remove_orphans() {
 alias q="pacman -Q|grep -i"
 alias s="pacman -Ss |grep -i"
 alias sin="sudo pacman -Sy"
+alias sun="sudo pacman -R"
 alias sup="sudo pacman -Syu"
