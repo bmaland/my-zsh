@@ -63,3 +63,4 @@ alias -s gz="tar -zxvf"
 alias -s bz2="tar -jxvf"
 alias -s zip=unzip
 alias -s txt=less
+alias -s git="git clone"

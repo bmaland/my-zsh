@@ -61,10 +61,10 @@ set_scm() {
   SVN=0
   HG=0
 
-  if [ `git status 2>/dev/null | wc -l` -gt 0 ]; then
-    GIT=1
-  elif [ `svn info 2>/dev/null | wc -l` -gt 0 ]; then
+  if [ -d .svn ]; then
     SVN=1
+  elif [ `git status 2>/dev/null | wc -l` -gt 0 ]; then
+    GIT=1
   elif [ `hg tip 2>/dev/null | wc -l` -gt 0 ]; then
     HG=1
   else
@@ -130,4 +130,3 @@ scs() {
 scd() {
   scm diff
 }
-
