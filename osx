@@ -9,7 +9,9 @@ alias sup="sudo port -d selfupdate && port outdated"
 
 alias o="open"
 
-alias emacs="open -a /Applications/Aquamacs\ Emacs.app/"
+if [ -d "/Applications/Aquamacs\ Emacs.app/" ]; then
+  alias emacs="open -a /Applications/Aquamacs\ Emacs.app/"
+fi
 
 export EDITOR=emacs
 
@@ -21,10 +23,10 @@ alias e=$EDITOR
 
 export BROWSER="open"
 
-alias -s {php,html,txt,rb,py,lisp,sml,php,js}=$EDITOR
-
-# open ftw
-alias -s {org,com,net,doc,odt,rtf,jpeg,jpg,JPEG,JPG,png,gif,xpm,avi,mpg,mpeg,vmw,mov,rm,pdf}=open
+if [ ! $ZSH_VERSION = "4.1.1" ]; then
+  alias -s {php,html,txt,rb,py,lisp,sml,php,js}=$EDITOR
+  alias -s {org,com,net,doc,odt,rtf,jpeg,jpg,JPEG,JPG,png,gif,xpm,avi,mpg,mpeg,vmw,mov,rm,pdf}=open
+fi
 
 # Avoid "unsupported locale"-errors on osx - setting lang vars back to default
 export LC_ALL="en_US.UTF-8"

@@ -58,9 +58,12 @@ alias -g C='| wc -l'
 alias -g L='|less' # command L equivalent to command |less
 alias -g S='&> /dev/null &' # command S equivalent to command &> /dev/null &
 
-# Set up cross platform auto extensions
-alias -s gz="tar -zxvf"
-alias -s bz2="tar -jxvf"
-alias -s zip=unzip
-alias -s txt=less
-alias -s git="git clone"
+# Set up cross platform auto extensions, for Zsh versions above 4.1.1
+# TODO better version checking ..
+if [ ! $ZSH_VERSION = "4.1.1" ]; then
+  alias -s gz="tar -zxvf"
+  alias -s bz2="tar -jxvf"
+  alias -s zip=unzip
+  alias -s txt=less
+  alias -s git="git clone"
+fi
