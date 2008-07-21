@@ -130,3 +130,11 @@ scs() {
 scd() {
   scm diff
 }
+
+# Convenience function for updating my dotfiles
+rcup() {
+  cd ~/.zsh
+  git pull
+  cd ~/.emacs.d
+  git pull
+}
