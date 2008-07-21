@@ -14,7 +14,7 @@ unsetopt BG_NICE    # do NOT nice bg commands
 setopt ALL_EXPORT
 setopt notify globdots correct pushdtohome cdablevars autolist
 setopt correctall autocd recexact longlistjobs
-setopt autoresume histignoredups pushdsilent 
+setopt autoresume histignoredups pushdsilent
 setopt autopushd pushdminus extendedglob rcquotes mailwarning
 setopt noglobalrcs # ignore /etc/zshrc etc
 unsetopt autoparamslash
@@ -48,7 +48,7 @@ export PATH="/opt/local/bin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin"
 export LIBXCB_ALLOW_SLOPPY_LOCK=true
 
 export CLICOLOR="yes"
-export GREP_OPTIONS='--color=auto' 
+export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;36'
 export PAGER=less
 export LESS="-iMSx4 -FX --quiet"
@@ -75,7 +75,7 @@ zstyle ':completion:*::::' completer _expand _complete _ignored _approximate
 # allow one error for every three characters typed in approximate completer
 zstyle -e ':completion:*:approximate:*' max-errors \
     'reply=( $(( ($#PREFIX+$#SUFFIX)/2 )) numeric )'
-    
+
 # insert all expansions for expand completer
 zstyle ':completion:*:expand:*' keep-prefix true tag-order all-expansions
 #zstyle ':completion:*:epand:*' glob false
