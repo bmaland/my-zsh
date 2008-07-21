@@ -43,25 +43,27 @@ alias gcm="git commit -a -v"
 alias gco="git checkout"
 
 # Global aliases
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
+alias -g ...="../.."
+alias -g ....="../../.."
+alias -g .....="../../../.."
 alias -g G="| grep"
 alias -g GI="| grep -i"
 alias -g DN=/dev/null
-alias -g S='| sort'
-alias -g H='| head'
-alias -g HL='| head -20'
-alias -g T='| tail'
-alias -g TL='| tail -20'
+alias -g S="| sort"
+alias -g H="| head"
+alias -g HL="| head -20"
+alias -g T="| tail"
+alias -g TL="| tail -20"
 alias -g VM=/var/log/messages
-alias -g C='| wc -l'
-alias -g L='|less' # command L equivalent to command |less
-alias -g S='&> /dev/null &' # command S equivalent to command &> /dev/null &
+alias -g C="| wc -l"
+alias -g L="|less" # command L equivalent to command |less
+alias -g S="&> /dev/null &" # command S equivalent to command &> /dev/null &
 
-# Set up cross platform auto extensions
-alias -s gz="tar -zxvf"
-alias -s bz2="tar -jxvf"
-alias -s zip=unzip
-alias -s txt=less
-alias -s git="git clone"
+# Set up cross platform auto extensions, for Zsh versions above 4.1.1
+if [ $MODERN_ZSH = "t" ]; then
+  alias -s gz="tar -zxvf"
+  alias -s bz2="tar -jxvf"
+  alias -s zip=unzip
+  alias -s txt=less
+  alias -s git="git clone"
+fi
