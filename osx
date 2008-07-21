@@ -1,8 +1,8 @@
 # (-*- shell-script -*-)
 
 # Package management
-alias s="port list | grep -i"
-alias q="port installed active | grep -i"
+alias sse="port list | grep -i"
+alias squ="port installed active | grep -i"
 alias sin="sudo port install"
 alias sun="sudo port uninstall"
 alias sup="sudo port -d selfupdate && port outdated"

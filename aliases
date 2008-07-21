@@ -31,7 +31,8 @@ alias rdm="rake db:migrate"
 alias rdmp="RAILS_ENV=production rake db:migrate"
 
 # gem
-alias g="gem list -r | grep -i"
+alias gse="gem list -r | grep -i"
+alias gqu="gem list | grep -i"
 alias gin="sudo gem install"
 alias gun="sudo gem uninstall"
 alias gup="sudo gem update"

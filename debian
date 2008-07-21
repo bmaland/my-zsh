@@ -7,9 +7,8 @@ alias ast="sudo /etc/init.d/apache2 start"
 alias ar="sudo /etc/init.d/apache2 restart"
 
 # apt/aptitute
-alias q="dpkg --get-selections|grep install|grep -i"
-alias s="apt-cache search"
+alias squ="dpkg --get-selections|grep install|grep -i"
+alias sse="apt-cache search"
 alias sin="sudo aptitude install"
 alias sun="sudo aptitude remove"
 alias sup="sudo aptitude update && sudo aptitude upgrade"
-
