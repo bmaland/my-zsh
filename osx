@@ -23,7 +23,7 @@ alias e=$EDITOR
 
 export BROWSER="open"
 
-if [ ! $ZSH_VERSION = "4.1.1" ]; then
+if [ $MODERN_ZSH = "t" ]; then
   alias -s {php,html,txt,rb,py,lisp,sml,php,js}=$EDITOR
   alias -s {org,com,net,doc,odt,rtf,jpeg,jpg,JPEG,JPG,png,gif,xpm,avi,mpg,mpeg,vmw,mov,rm,pdf}=open
 fi

@@ -59,8 +59,7 @@ alias -g L="|less" # command L equivalent to command |less
 alias -g S="&> /dev/null &" # command S equivalent to command &> /dev/null &
 
 # Set up cross platform auto extensions, for Zsh versions above 4.1.1
-# TODO better version checking ..
-if [ ! $ZSH_VERSION = "4.1.1" ]; then
+if [ $MODERN_ZSH = "t" ]; then
   alias -s gz="tar -zxvf"
   alias -s bz2="tar -jxvf"
   alias -s zip=unzip
