@@ -28,4 +28,4 @@ fi
 # Load site specific file if it exists
 if [ -f ~/.zsh/hosts/`hostname -s` ]; then
   source ~/.zsh/hosts/`hostname -s`
-f
+fi
