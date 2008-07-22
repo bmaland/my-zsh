@@ -14,7 +14,13 @@ zle -N rationalise-dot
 
 gemdoc() {
   local gemdir=`gem env gemdir`
-  $BROWSER $gemdir/doc/`ls $gemdir/doc/ | grep $1 | sort | tail -1`/rdoc/index.html
+  local gem=`ls $gemdir/doc/ | grep $1 | sort | tail -1`
+  echo $gem
+  if [ ! -z $gem ]; then
+    eval "$BROWSER $gemdir/doc/$gem/rdoc/index.html"
+  else
+    echo "Gem not found"
+  fi
 }
 
 _gemdoc() {
@@ -22,7 +28,7 @@ _gemdoc() {
 }
 compdef _gemdoc gemdoc
 
-# Completion for psql databases
+# Simple completion for psql databases
 _psql_databases() {
   compadd $(psql -l | grep "^ \w" |  awk -F '|' '{ printf("%s\n", $1) }' | sed 's/ //g')
 }
@@ -32,12 +38,12 @@ zipdir() {
   zip "$@".zip -r "$@" -x "*/.DS_Store" "*/.gitignore" "*/.hgignore" "*/.hgtags" "*/.svn/*" "*/.git/*" "*/.hg/*"
 }
 
-sall() {
-  svn status | grep "^\?" | awk -F "      " '{ printf("\"%s\"\n", $2) }' | xargs svn add
+sadd() {
+  svn st | grep "^\?" | awk -F "      " '{ printf("\"%s\"\n", $2) }' | xargs svn add
 }
 
 sdel() {
-  svn status | grep "^\!" | awk -F "      " '{ printf("\"%s\"\n", $2) }' | xargs svn delete
+  svn st | grep "^\!" | awk -F "      " '{ printf("\"%s\"\n", $2) }' | xargs svn del
 }
 
 # NOTE: this is probably obsolete since hg commit -A
@@ -50,17 +56,17 @@ hdelu() {
   hg st | grep "^\?" | awk '{ printf("\"%s\"\n", $2) }' | xargs rm
 }
 
+# Recursively delete all .svn dirs
 rm_svn() {
   find "$@" -name .svn -print0 | xargs -0 rm -rf
 }
 
+# Recursively delete all .DS_Store files
 ds_clean() {
   find "$@" -name .DS_Store -print0 | xargs -0 rm
 }
 
 # Simple heuristics for determining the current projects scm.
-# There surely is a smarter way to do this than setting shell variables
-# but it's the best I can come up with atm
 set_scm() {
   GIT=0
   SVN=0
