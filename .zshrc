@@ -26,6 +26,6 @@ else
 fi
 
 # Load site specific file if it exists
-if [ -f ~/.zsh/`hostname -s` ]; then
-  source ~/.zsh/`hostname -s`
+if [ -f ~/.zsh/hosts/`hostname -s` ]; then
+  source ~/.zsh/hosts/`hostname -s`
 fi

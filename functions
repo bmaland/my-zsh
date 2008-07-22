@@ -20,8 +20,13 @@ gemdoc() {
 _gemdoc() {
   compadd $(ls `gem env gemdir`/doc)
 }
-
 compdef _gemdoc gemdoc
+
+# Completion for psql databases
+_psql_databases() {
+  compadd $(psql -l | grep "^ \w" |  awk -F '|' '{ printf("%s\n", $1) }' | sed 's/ //g')
+}
+compdef _psql_databases psql
 
 zipdir() {
   zip "$@".zip -r "$@" -x "*/.DS_Store" "*/.gitignore" "*/.hgignore" "*/.hgtags" "*/.svn/*" "*/.git/*" "*/.hg/*"
@@ -129,4 +134,14 @@ scs() {
 
 scd() {
   scm diff
+}
+
+# Convenience function for updating my dotfiles
+rcup() {
+  local pwd=$(pwd)
+  cd ~/.zsh
+  git pull
+  cd ~/.emacs.d
+  git pull
+  cd $pwd
 }

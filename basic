@@ -61,6 +61,8 @@ export LC_CTYPE="nn_NO.UTF-8"
 
 # Specify list of hosts for completion
 zstyle '*' hosts bogus.uib.no haman zero sleep obvcode.net springbrettet.org demo.web-master.no
+# Disable completion of usernames
+zstyle ':completion:*' users off
 
 # Cache
 zstyle ':completion:*' use-cache on
