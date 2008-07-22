@@ -9,7 +9,8 @@ alias sup="sudo port -d selfupdate && port outdated"
 
 alias o="open"
 
-if [ -d "/Applications/Aquamacs\ Emacs.app/" ]; then
+# Check if Aquamacs is present
+if [ -d "/Applications/Aquamacs Emacs.app/" ]; then
   alias emacs="open -a /Applications/Aquamacs\ Emacs.app/"
 fi
 
