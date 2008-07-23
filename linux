@@ -13,5 +13,6 @@ export VISUAL=$EDITOR
 
 alias e=$EDITOR
 
-alias -s {rb,py,lisp,sml,php,js,html}=$EDITOR
-
+if [ $MODERN_ZSH = "t" ]; then
+  alias -s {lisp,sml,php,js}=$EDITOR
+fi
