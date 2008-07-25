@@ -1,6 +1,16 @@
 # (-*- shell-script -*-)
 # Shared functions
 
+# Convenience function for updating my dotfiles
+rcup() {
+  local pwd=$(pwd)
+  cd ~/.zsh
+  git pull
+  cd ~/.emacs.d
+  git pull
+  cd $pwd
+}
+
 # Quick dirchange
 rationalise-dot() {
   if [[ $LBUFFER = *.. ]]; then
@@ -12,11 +22,17 @@ rationalise-dot() {
 
 zle -N rationalise-dot
 
+# Git
+function git-scoreboard () {
+  git log | grep Author | sort | uniq -ci | sort -r
+}
+
+# Ruby
 gemdoc() {
   local gemdir=`gem env gemdir`
   local gem=`ls $gemdir/doc/ | grep $1 | sort | tail -1`
-  echo $gem
-  if [ ! -z $gem ]; then
+
+  if [ $gem ]; then
     eval "$BROWSER $gemdir/doc/$gem/rdoc/index.html"
   else
     echo "Gem not found"
@@ -38,6 +54,7 @@ zipdir() {
   zip "$@".zip -r "$@" -x "*/.DS_Store" "*/.gitignore" "*/.hgignore" "*/.hgtags" "*/.svn/*" "*/.git/*" "*/.hg/*"
 }
 
+# SCM
 sadd() {
   svn st | grep "^\?" | awk -F "      " '{ printf("\"%s\"\n", $2) }' | xargs svn add
 }
@@ -74,9 +91,9 @@ set_scm() {
 
   if [ -d .svn ]; then
     SVN=1
-  elif [ `git status 2>/dev/null | wc -l` -gt 0 ]; then
+  elif git branch >/dev/null 2>&1; then
     GIT=1
-  elif [ `hg tip 2>/dev/null | wc -l` -gt 0 ]; then
+  elif hg branch > /dev/null 2>&1; then
     HG=1
   else
     echo "SCM not found - does this directory contain a repos?"
@@ -140,14 +157,4 @@ scs() {
 
 scd() {
   scm diff
-}
-
-# Convenience function for updating my dotfiles
-rcup() {
-  local pwd=$(pwd)
-  cd ~/.zsh
-  git pull
-  cd ~/.emacs.d
-  git pull
-  cd $pwd
 }
