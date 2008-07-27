@@ -1,13 +1,14 @@
 # (-*- shell-script -*-)
 
+alias o="open"
+alias dmesg="sudo dmesg" # sudo required for dmesg on osx
+
 # Package management
 alias sse="port list | grep -i"
 alias squ="port installed active | grep -i"
 alias sin="sudo port install"
 alias sun="sudo port uninstall"
 alias sup="sudo port -d selfupdate && port outdated"
-
-alias o="open"
 
 # Check if Aquamacs is present
 if [ -d "/Applications/Aquamacs Emacs.app/" ]; then
