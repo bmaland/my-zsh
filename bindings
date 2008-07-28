@@ -3,11 +3,11 @@
 # Key bindings (remember that these are case insensitive - shift is ignored)
 bindkey -e # Force emacs editing mode
 bindkey ' ' magic-space    # also do history expansion on space, for i.e !:1
-bindkey "\C-r" history-incremental-search-backward
-bindkey "\C-p" history-search-backward
+bindkey '\C-r' history-incremental-search-backward
+bindkey '\C-p' history-search-backward
 bindkey '\C-z' undo # both C-z and C-x u
 bindkey '\C-i' complete-word
-bindkey '\C-w' backward-delete-word
+bindkey '\C-w' vi-backward-kill-word
 bindkey '\C-x' kill-region
 bindkey . rationalise-dot
 
