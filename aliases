@@ -21,6 +21,7 @@ alias ri="ri -Tf ansi"
 
 # Rails
 alias ss="./script/server"
+alias ssp="./script/server -eproduction"
 alias sc="./script/console"
 alias sg="./script/generate"
 alias sp="./script/plugin"
@@ -62,6 +63,7 @@ alias -g S="&> /dev/null &" # command S equivalent to command &> /dev/null &
 
 # Set up cross platform auto extensions, for Zsh versions above 4.1.1
 if [ $MODERN_ZSH = "t" ]; then
+  alias -s tar="tar -xvf"
   alias -s gz="tar -zxvf"
   alias -s bz2="tar -jxvf"
   alias -s zip=unzip

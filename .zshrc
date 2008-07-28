@@ -14,9 +14,7 @@ if [ ! -d /Users ]; then
   source ~/.zsh/linux
 
   # Try to figure out which distro we are on and load its config
-  if [ -f /etc/popularity-contest.conf ]; then
-    source ~/.zsh/ubuntu
-  elif [ -f /etc/debian_version ]; then
+  if [ -f /etc/debian_version ]; then
     source ~/.zsh/debian
   elif [ -f /etc/arch-release ]; then
     source ~/.zsh/arch

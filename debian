@@ -1,5 +1,5 @@
 # (-*- shell-script -*-)
-# Debian specifics
+# Debian/Ubuntu specifics
 
 # apache
 alias as="sudo /etc/init.d/apache2 stop"
@@ -11,4 +11,16 @@ alias squ="dpkg --get-selections|grep install|grep -i"
 alias sse="apt-cache search"
 alias sin="sudo aptitude install"
 alias sun="sudo aptitude remove"
-alias sup="sudo aptitude update && sudo aptitude upgrade"
+alias sup="sudo aptitude update && sudo aptitude dist-upgrade"
+
+# Functions
+
+# Wrapper for init.d, i.e "service ssh stop"
+service() {
+  eval "sudo /etc/init.d/$1 $2"
+}
+
+_service() {
+  compadd $(ls /etc/init.d|grep -v README)
+}
+compdef _service service
