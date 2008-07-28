@@ -14,11 +14,13 @@ alias sun="sudo aptitude remove"
 alias sup="sudo aptitude update && sudo aptitude dist-upgrade"
 
 # Functions
+
+# Wrapper for init.d, i.e "service ssh stop"
 service() {
   eval "sudo /etc/init.d/$1 $2"
 }
 
 _service() {
-  compadd $(ls `/etc/init.d|grep -v README`)
+  compadd $(ls /etc/init.d|grep -v README)
 }
 compdef _service service
