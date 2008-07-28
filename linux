@@ -1,7 +1,7 @@
 # (-*- shell-script -*-)
 # Linux specific stuff
 
-alias shutdown="sudo shutdown"
+alias shutdown="sudo shutdown -h now"
 alias reboot="sudo reboot"
 alias ls="ls --color=auto "
 alias emacs="emacs -nw --no-site-file"

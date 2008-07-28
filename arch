@@ -1,6 +1,15 @@
 # (-*- shell-script -*-)
 # Specific for Arch Linux
 
+# pacman
+alias squ="pacman -Q|grep -i"
+alias sse="pacman -Ss |grep -i"
+alias sin="sudo pacman -S"
+alias sun="sudo pacman -R"
+alias sup="sudo pacman -Syu"
+
+# Functions
+
 remove_orphans() {
   for pkg in `pacman -Qdt|awk -F ' ' '{ printf("%s\n", $1) }'`; do
     sudo pacman -R $pkg
@@ -8,9 +17,12 @@ remove_orphans() {
   if [ `pacman -Qdt|wc -l` -gt 0 ]; then remove_orphans; fi
 }
 
-# pacman
-alias squ="pacman -Q|grep -i"
-alias sse="pacman -Ss |grep -i"
-alias sin="sudo pacman -S"
-alias sun="sudo pacman -R"
-alias sup="sudo pacman -Syu"
+# Wrapper for init.d, i.e "service ssh stop"
+service() {
+  eval "sudo /etc/rc.d/$1 $2"
+}
+
+_service() {
+  compadd $(ls /etc/rc.d|grep -v functions)
+}
+compdef _service service
