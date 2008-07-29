@@ -7,7 +7,7 @@ setopt AUTO_CD
 setopt INC_APPEND_HISTORY SHARE_HISTORY
 setopt APPEND_HISTORY
 setopt EXTENDED_HISTORY    # puts timestamps in the history
-setopt histverify  # check new lines after modification
+#setopt histverify  # check new lines after modification
 setopt hist_ignore_dups # ignores consecutive duplicate lines
 unsetopt BG_NICE    # do NOT nice bg commands
 #setopt MENUCOMPLETE
