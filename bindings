@@ -7,7 +7,5 @@ bindkey '\C-r' history-incremental-search-backward
 bindkey '\C-p' history-search-backward
 bindkey '\C-z' undo # both C-z and C-x u
 bindkey '\C-i' complete-word
-bindkey '\C-w' vi-backward-kill-word
 bindkey '\C-x' kill-region
 bindkey . rationalise-dot
-

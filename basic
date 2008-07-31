@@ -1,46 +1,53 @@
 # (-*- shell-script -*-)
 
-# Set/unset  shell options
-setopt CORRECT      # command CORRECTION
-setopt nobeep
+# Zsh options
 setopt AUTO_CD
-setopt INC_APPEND_HISTORY SHARE_HISTORY
-setopt APPEND_HISTORY
-setopt EXTENDED_HISTORY    # puts timestamps in the history
-#setopt histverify  # check new lines after modification
-setopt hist_ignore_dups # ignores consecutive duplicate lines
-unsetopt BG_NICE    # do NOT nice bg commands
-#setopt MENUCOMPLETE
-#setopt ALL_EXPORT
-setopt notify globdots correct pushdtohome cdablevars autolist
-setopt correctall autocd recexact longlistjobs
-setopt autoresume histignoredups pushdsilent
-setopt autopushd pushdminus extendedglob rcquotes mailwarning
-setopt noglobalrcs # ignore /etc/zshrc etc
-unsetopt autoparamslash
+setopt CORRECT_ALL         # Try to correct the spelling of all arguments in a line
+setopt HASH_LIST_ALL       # Make sure the entire command path is hashed first
+setopt INC_APPEND_HISTORY  # New history lines are added to the $HISTFILE incrementally
+setopt EXTENDED_HISTORY    # Puts timestamps in the history
+setopt HIST_IGNORE_DUPS    # Ignores consecutive duplicate lines
+setopt NOTIFY              # Report the status of background jobs immediately
+setopt GLOB_DOTS           # Do not require a leading `.' in a filename to be matched explicitly
+setopt CDABLE_VARS         # Try to expand the expression as if it were preceded by a `~'
+setopt AUTO_LIST           # Automatically list choices on an ambiguous completion
+setopt AUTO_PUSHD          # Make cd push the old directory onto the directory stack
+setopt PUSHD_SILENT        # Do not print the directory stack after pushd or popd
+setopt REC_EXACT           # In completion, recognize exact matches even if they are ambiguous.
+setopt EXTENDED_GLOB       # Treat the `#', `~' and `^' characters as part of patterns
+setopt BRACE_CCL           # Expand  expressions in brace
+setopt NO_GLOBAL_RCS       # Ignore /etc/zshrc etc
+setopt NO_BEEP
+
 
 # Autoload zsh modules when they are referenced
 zmodload -a zsh/stat stat
 zmodload -a zsh/zpty zpty
 zmodload -a zsh/zprof zprof
-#zmodload -ap zsh/mapfile mapfile
 
 autoload -U compinit
 compinit
 
+# Only  alphanumeric  characters are considered word characters
+autoload -U select-word-style
+select-word-style bash
+
+if [ $MODERN_ZSH = "t" ]; then
+  autoload -U zsh-mime-setup
+  zsh-mime-setup
+fi
+
 limit coredumpsize 0
 
-# type a directory's name to cd to it.
-compctl -/ cd
+
+# SHELL VARIABLES
+# Prompt
+export PS1="$(print '%{\e[1;31m%}%m%{\e[0m%}'):%~ $ "
 
 # History
 export HISTSIZE=5000
 export SAVEHIST=5000
 export HISTFILE=~/.history
-
-# SHELL VARIABLES
-# Prompt
-export PS1="$(print '%{\e[1;31m%}%m%{\e[0m%}'):%~ $ "
 
 # Default path
 export PATH="/opt/local/bin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin"
@@ -58,6 +65,9 @@ export LC_ALL="nn_NO.UTF-8"
 export LC_CTYPE="nn_NO.UTF-8"
 
 # Completion Styles
+
+# type a directory's name to cd to it.
+compctl -/ cd
 
 # Specify list of hosts for completion
 zstyle '*' hosts bogus.uib.no haman zero sleep obvcode.net springbrettet.org demo.web-master.no
