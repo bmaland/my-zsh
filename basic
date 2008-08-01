@@ -3,15 +3,16 @@
 # Zsh options
 setopt AUTO_CD
 setopt CORRECT_ALL          # Try to correct the spelling of all arguments in a line
-setopt HASH_LIST_ALL        # Make sure the entire command path is hashed first
-setopt INC_APPEND_HISTORY   # New history lines are added to the $HISTFILE incrementally
+setopt EXTENDED_GLOB        # Treat the `#', `~' and `^' characters as part of patterns
 setopt EXTENDED_HISTORY     # Puts timestamps in the history
+setopt HASH_LIST_ALL        # Make sure the entire command path is hashed first
 setopt HIST_IGNORE_ALL_DUPS # Remove old dups
 setopt HIST_IGNORE_DUPS     # Ignores consecutive duplicate lines
 setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks from each command line being added to the history list
+setopt INC_APPEND_HISTORY   # New history lines are added to the $HISTFILE incrementally
+setopt INTERACTIVE_COMMENTS # Allow comments even in interactive shells
 setopt NOTIFY               # Report the status of background jobs immediately
 setopt GLOB_DOTS            # Do not require a leading `.' in a filename to be matched explicitly
-setopt EXTENDED_GLOB        # Treat the `#', `~' and `^' characters as part of patterns
 setopt CDABLE_VARS          # Try to expand the expression as if it were preceded by a `~'
 setopt AUTO_LIST            # Automatically list choices on an ambiguous completion
 setopt AUTO_PUSHD           # Make cd push the old directory onto the directory stack
