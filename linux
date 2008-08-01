@@ -1,10 +1,11 @@
 # (-*- shell-script -*-)
 # Linux specific stuff
 
-alias shutdown="sudo shutdown -h now"
-alias reboot="sudo reboot"
-alias ls="ls --color=auto "
-alias emacs="emacs -nw --no-site-file"
+eval `dircolors -b`
+export ZLS_COLORS=$LS_COLORS
+
+# TODO make this work on osx as well
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 export EDITOR=emacs
 export FCEDIT=$EDITOR
@@ -12,6 +13,10 @@ export SVN_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
 alias e=$EDITOR
+alias shutdown="sudo shutdown -h now"
+alias reboot="sudo reboot"
+alias ls="ls --color=auto "
+alias emacs="emacs -nw --no-site-file"
 
 if [ $MODERN_ZSH = "t" ]; then
   alias -s {lisp,sml,php,js}=$EDITOR

@@ -75,6 +75,14 @@ export LC_CTYPE="nn_NO.UTF-8"
 # type a directory's name to cd to it.
 compctl -/ cd
 
+# list of completers to use
+zstyle ':completion:*::::' completer _complete _correct _approximate
+
+# match uppercase from lowercase
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+zstyle ':completion:*' expand 'yes'
+
 # Completion of hostnames, pulled out of ~/.ssh/config.
 local _myhosts
 _myhosts=( $(cat ~/.ssh/config|grep '^H'|cut -d ' ' -f 2) )
@@ -90,16 +98,12 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 # Expand man pages
 zstyle ':completion:*:manuals' separate-sections true
 
-# list of completers to use
-zstyle ':completion:*::::' completer _expand _complete _ignored _approximate
-
 # allow one error for every three characters typed in approximate completer
 zstyle -e ':completion:*:approximate:*' max-errors \
     'reply=( $(( ($#PREFIX+$#SUFFIX)/2 )) numeric )'
 
 # insert all expansions for expand completer
 zstyle ':completion:*:expand:*' keep-prefix true tag-order all-expansions
-#zstyle ':completion:*:epand:*' glob false
 
 # formatting and messages
 zstyle ':completion:*' verbose yes
@@ -118,9 +122,6 @@ zstyle ':completion:*:*files' ignored-patterns '*?.o' '*?~'
 zstyle ':completion:*:*cd:*' ignored-patterns '(*/|)(CVS|SCCS|SVN|GIT|HG)'
 zstyle ':completion::*:(git|less|rm|emacs)' ignore-line true
 zstyle ':completion:*' ignore-parents parent pwd
-
-# match uppercase from lowercase
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # offer indexes before parameters in subscripts
 zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
