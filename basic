@@ -2,21 +2,25 @@
 
 # Zsh options
 setopt AUTO_CD
-setopt CORRECT_ALL         # Try to correct the spelling of all arguments in a line
-setopt HASH_LIST_ALL       # Make sure the entire command path is hashed first
-setopt INC_APPEND_HISTORY  # New history lines are added to the $HISTFILE incrementally
-setopt EXTENDED_HISTORY    # Puts timestamps in the history
-setopt HIST_IGNORE_DUPS    # Ignores consecutive duplicate lines
-setopt NOTIFY              # Report the status of background jobs immediately
-setopt GLOB_DOTS           # Do not require a leading `.' in a filename to be matched explicitly
-setopt CDABLE_VARS         # Try to expand the expression as if it were preceded by a `~'
-setopt AUTO_LIST           # Automatically list choices on an ambiguous completion
-setopt AUTO_PUSHD          # Make cd push the old directory onto the directory stack
-setopt PUSHD_SILENT        # Do not print the directory stack after pushd or popd
-setopt REC_EXACT           # In completion, recognize exact matches even if they are ambiguous.
-setopt EXTENDED_GLOB       # Treat the `#', `~' and `^' characters as part of patterns
-setopt BRACE_CCL           # Expand  expressions in brace
-setopt NO_GLOBAL_RCS       # Ignore /etc/zshrc etc
+setopt CORRECT_ALL          # Try to correct the spelling of all arguments in a line
+setopt HASH_LIST_ALL        # Make sure the entire command path is hashed first
+setopt INC_APPEND_HISTORY   # New history lines are added to the $HISTFILE incrementally
+setopt EXTENDED_HISTORY     # Puts timestamps in the history
+setopt HIST_IGNORE_ALL_DUPS # Remove old dups
+setopt HIST_IGNORE_DUPS     # Ignores consecutive duplicate lines
+setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks from each command line being added to the history list
+setopt NOTIFY               # Report the status of background jobs immediately
+setopt GLOB_DOTS            # Do not require a leading `.' in a filename to be matched explicitly
+setopt EXTENDED_GLOB        # Treat the `#', `~' and `^' characters as part of patterns
+setopt CDABLE_VARS          # Try to expand the expression as if it were preceded by a `~'
+setopt AUTO_LIST            # Automatically list choices on an ambiguous completion
+setopt AUTO_PUSHD           # Make cd push the old directory onto the directory stack
+setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd
+setopt REC_EXACT            # In completion, recognize exact matches even if they are ambiguous.
+setopt BRACE_CCL            # Expand  expressions in brace
+setopt IGNORE_EOF           # Do not exit on end-of-file
+setopt MENU_COMPLETE        # On an ambiguous completion, insert the first match immediately
+setopt NO_GLOBAL_RCS        # Ignore /etc/zshrc etc
 setopt NO_BEEP
 
 
@@ -25,6 +29,7 @@ zmodload -a zsh/stat stat
 zmodload -a zsh/zpty zpty
 zmodload -a zsh/zprof zprof
 
+autoload -U zmv
 autoload -U compinit
 compinit
 
@@ -69,8 +74,11 @@ export LC_CTYPE="nn_NO.UTF-8"
 # type a directory's name to cd to it.
 compctl -/ cd
 
-# Specify list of hosts for completion
-zstyle '*' hosts bogus.uib.no haman zero sleep obvcode.net springbrettet.org demo.web-master.no
+# Completion of hostnames, pulled out of ~/.ssh/config.
+local _myhosts
+_myhosts=( $(cat ~/.ssh/config|grep '^H'|cut -d ' ' -f 2) )
+zstyle ':completion:*' hosts ${_myhosts[1,-2]} # Slices off the last entry
+
 # Disable completion of usernames
 zstyle ':completion:*' users off
 

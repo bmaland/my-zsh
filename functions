@@ -19,8 +19,15 @@ rationalise-dot() {
     LBUFFER+=.
   fi
 }
-
 zle -N rationalise-dot
+
+# Reruns last command
+infer-hist() {
+  zle up-history
+  zle infer-next-history
+  zle accept-line
+}
+zle -N infer-hist
 
 # Wrapper for bc, with scale of 4 by default
 solve() {
@@ -165,5 +172,5 @@ scs() {
 }
 
 scd() {
-  scm diff
+  scm diff $@
 }

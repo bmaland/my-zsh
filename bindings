@@ -6,6 +6,8 @@ bindkey ' ' magic-space    # also do history expansion on space, for i.e !:1
 bindkey '\C-r' history-incremental-search-backward
 bindkey '\C-p' history-search-backward
 bindkey '\C-z' undo # both C-z and C-x u
-bindkey '\C-i' complete-word
+bindkey '\C-i' menu-complete
+bindkey '\C-u' reverse-menu-complete
 bindkey '\C-x' kill-region
+bindkey '\C-l' infer-hist
 bindkey . rationalise-dot

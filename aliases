@@ -1,6 +1,7 @@
 # (-*- shell-script -*-)
 # Common aliases
 
+alias df="df -h"
 alias reload_hist="fc -RI"
 alias f="find . |grep -i"
 alias h="history"
