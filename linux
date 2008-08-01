@@ -1,6 +1,15 @@
 # (-*- shell-script -*-)
 # Linux specific stuff
 
+# Set terminal title
+# chpwd gets executed whenever the current working directory is changed
+chpwd() {
+  echo -ne "\033]2;$(hostname -s):${PWD}\007\033]1;@${host}:${PWD}\007"
+}
+# Set initial prompt
+echo -ne "\033]2;$(hostname -s):${PWD}\007\033]1;@${host}:${PWD}\007"
+
+# Colors in completion
 eval `dircolors -b`
 export ZLS_COLORS=$LS_COLORS
 
