@@ -47,6 +47,19 @@ limit coredumpsize 0
 
 
 # SHELL VARIABLES
+
+LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=33:so=01;35:bd=01;33:cd=01;33:
+ex=01;32:*.c=36:*.cc=36:*.h=33:*.cmd=01;32:*.exe=01;32:*.com=01;32:
+*.btm=01;32:*.bat=01;32:*.app=01;32:*.tar=00;31:*.tgz=00;31:*.arj=00;31:
+*.taz=00;31:*.lzh=00;31:*.zip=00;31:*.z=00;31:*.Z=00;31:*.gz=00;31:
+*.sit=00;31:*.sitX=00;31:*.zip=00;31:*.bin=00;31:*.hqx=00;31:*.jpg=00;35:
+*.jpeg=00;35:*.gif=00;35:*.bmp=00;35:*.xbm=00;35:*.xpm=00;35:*.tif=00;35:
+*.tiff=00;35:*.pdf=00;35:*.avi=00;35:*.mov=00;35:*.mpg=00;35:*.mpeg=00;35:
+*.asf=00;35:*.wmv=00;35:*.rm=00;35:*.swf=00;35:*.mp3=00;35:*.aiff=00;35:
+*.aif=00;35:*.snd=00;35:*.wav=00;35:';
+export LS_COLORS
+export ZLS_COLORS=$LS_COLORS
+
 # Prompt
 export PS1="$(print '%{\e[1;31m%}%m%{\e[0m%}'):%~ $ "
 
@@ -143,3 +156,6 @@ zstyle ':completion:*:ssh:*' tag-order \
 zstyle ':completion:*:ssh:*' group-order \
    hosts-domain hosts-host users hosts-ipaddr
 zstyle '*' single-ignored show
+
+# Colors in completion
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}

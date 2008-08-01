@@ -133,7 +133,7 @@ sci() {
   set_scm
   if [ $GIT -eq 1 ]; then
     if [ -z $@ ]; then
-      git commit -a -m
+      git commit -a
     else
       git commit -a -m $@
     fi
