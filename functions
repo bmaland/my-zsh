@@ -8,6 +8,8 @@ rcup() {
   git pull
   cd ~/.emacs.d
   git pull
+  cd ~/dotfiles
+  git pull
   cd $pwd
 }
 
