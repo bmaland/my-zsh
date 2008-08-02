@@ -1,13 +1,24 @@
 # (-*- shell-script -*-)
 # Shared functions
 
-# Dynamic window titles for screen
-if [[ $TERM = screen ]]; then
-  chpwd() {
-    screen -X title `pwd`
-  }
-  screen -X title `pwd`
-fi
+set-title() {
+  if [[ $TERM = screen ]]; then
+    screen -X title $1
+  else
+    set-term-title `hostname -s`:$1
+  fi
+}
+
+set-program-title() {
+  case $1 in
+    screen|top|htop|emacs|vi)
+      set-title $1
+      ;;
+    *)
+      set-title `pwd`
+      ;;
+  esac
+}
 
 # Convenience function for updating my dotfiles
 rcup() {

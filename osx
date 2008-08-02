@@ -1,14 +1,10 @@
 # (-*- shell-script -*-)
 
-# Set terminal title, when not in screen. Tabs only work in iTerm atm
-if [[ $TERM != screen ]]; then
-  chpwd() {
-    print -Pn "\e]2;%m:%~\a"
-    print -Pn "\e]1;%m:%~\a"
-  }
-  print -Pn "\e]2;%m:%~\a"
-  print -Pn "\e]1;%m:%~\a"
-fi
+# Tab-titles only work in iTerm atm
+set-term-title() {
+  print -Pn "\e]2;${1}\a"
+  print -Pn "\e]1;${1}\a"
+}
 
 # Check if Aquamacs is present
 if [ -d /Applications/Aquamacs\ Emacs.app ]; then

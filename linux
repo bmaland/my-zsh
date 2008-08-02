@@ -1,15 +1,9 @@
 # (-*- shell-script -*-)
 # Linux specific stuff
 
-# Set terminal title, when not in screen
-# chpwd gets executed whenever the current working directory is changed
-if [[ $TERM != screen ]]; then
-  chpwd() {
-    echo -ne "\033]2;$(hostname -s):${PWD}\007\033]1;@${host}:${PWD}\007"
-  }
-  # Set initial prompt
-  echo -ne "\033]2;$(hostname -s):${PWD}\007\033]1;@${host}:${PWD}\007"
-fi
+set-term-title() {
+  echo -ne "\033]2;${1}\007"
+}
 
 export EDITOR=emacs
 export FCEDIT=$EDITOR
