@@ -1,13 +1,15 @@
 # (-*- shell-script -*-)
 # Linux specific stuff
 
-# Set terminal title
+# Set terminal title, when not in screen
 # chpwd gets executed whenever the current working directory is changed
-chpwd() {
+if [[ $TERM != screen ]]; then
+  chpwd() {
+    echo -ne "\033]2;$(hostname -s):${PWD}\007\033]1;@${host}:${PWD}\007"
+  }
+  # Set initial prompt
   echo -ne "\033]2;$(hostname -s):${PWD}\007\033]1;@${host}:${PWD}\007"
-}
-# Set initial prompt
-echo -ne "\033]2;$(hostname -s):${PWD}\007\033]1;@${host}:${PWD}\007"
+fi
 
 export EDITOR=emacs
 export FCEDIT=$EDITOR
@@ -21,6 +23,6 @@ alias ls="ls --color=auto"
 alias top="htop"
 alias emacs="emacs -nw --no-site-file"
 
-if [ $MODERN_ZSH = "t" ]; then
+if [[ $MODERN_ZSH = t ]]; then
   alias -s {lisp,sml,php,js}=$EDITOR
 fi

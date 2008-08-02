@@ -1,35 +1,43 @@
 # (-*- shell-script -*-)
 
-# Set terminal title. Tabs only work in iTerm atm
-chpwd() {
+# Set terminal title, when not in screen. Tabs only work in iTerm atm
+if [[ $TERM != screen ]]; then
+  chpwd() {
+    print -Pn "\e]2;%m:%~\a"
+    print -Pn "\e]1;%m:%~\a"
+  }
   print -Pn "\e]2;%m:%~\a"
   print -Pn "\e]1;%m:%~\a"
-}
-print -Pn "\e]2;%m:%~\a"
-print -Pn "\e]1;%m:%~\a"
+fi
 
 # Check if Aquamacs is present
-if [ -d "/Applications/Aquamacs Emacs.app/" ]; then
-  alias emacs="open -a /Applications/Aquamacs\ Emacs.app/"
+if [ -d /Applications/Aquamacs\ Emacs.app ]; then
+  emacs() {
+    # The files have to exist before they can be opened
+    for f in $@; do
+      if [[ ! -f $f ]]; then touch $f; fi
+    done
+    open -a /Applications/Aquamacs\ Emacs.app $@
+  }
 fi
 
 export EDITOR=emacs
 export FCEDIT=$EDITOR
 export SVN_EDITOR=$EDITOR
 export VISUAL=$EDITOR
-export BROWSER="open"
+export BROWSER=open
 
 # Avoid "unsupported locale"-errors on osx - setting lang vars back to default
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
-if [ $MODERN_ZSH = "t" ]; then
+if [[ $MODERN_ZSH = t ]]; then
   alias -s {php,txt,lisp,sml,php,js}=$EDITOR
   alias -s {html,org,com,net,doc,odt,rtf,jpeg,jpg,JPEG,JPG,png,gif,xpm,avi,mpg,mpeg,vmw,mov,rm,pdf}=open
 fi
 
 alias e=$EDITOR
-alias o="open"
+alias o=open
 alias dmesg="sudo dmesg" # sudo required for dmesg on osx
 
 # Package management
