@@ -1,6 +1,14 @@
 # (-*- shell-script -*-)
 # Shared functions
 
+# Dynamic window titles for screen
+if [[ $TERM = screen ]]; then
+  chpwd() {
+    screen -X title `pwd`
+  }
+  screen -X title `pwd`
+fi
+
 # Convenience function for updating my dotfiles
 rcup() {
   local pwd=$(pwd)
