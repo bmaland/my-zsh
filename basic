@@ -38,7 +38,7 @@ compinit
 autoload -U select-word-style
 select-word-style bash
 
-if [ $MODERN_ZSH = "t" ]; then
+if [[ $MODERN_ZSH = t ]]; then
   autoload -U zsh-mime-setup
   zsh-mime-setup
 fi
@@ -78,7 +78,7 @@ export PATH="/opt/local/bin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin"
 
 export LIBXCB_ALLOW_SLOPPY_LOCK=true
 
-export CLICOLOR="yes"
+export CLICOLOR=yes
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;36'
 export PAGER=less
