@@ -4,7 +4,7 @@
 set-title() {
   if [[ $TERM = screen ]]; then
     screen -X title $1
-  else
+  elif echo $TERM | grep -q xterm; then
     set-term-title `hostname -s`:$1
   fi
 }
