@@ -15,6 +15,10 @@ if [ -d /Applications/Aquamacs\ Emacs.app ]; then
     done
     open -a /Applications/Aquamacs\ Emacs.app $@
   }
+
+  em() {
+    /Applications/Aquamacs\ Emacs.app/Contents/MacOS/Aquamacs\ Emacs -nw --debug-init "$@"
+  }
 fi
 
 export EDITOR=emacs
