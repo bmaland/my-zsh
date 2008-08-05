@@ -45,6 +45,11 @@ alias gup="sudo gem update"
 alias gb="git branch --color"
 alias gcm="git commit -a -v"
 alias gco="git checkout"
+alias grhh="git reset --hard HEAD"
+alias gdh="git diff HEAD"
+alias gdhh="git diff HEAD\^"
+alias gdhhh="git diff HEAD\^\^"
+alias gpt="git push --tags"
 
 # Global aliases
 alias -g ...="../.."
