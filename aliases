@@ -1,8 +1,11 @@
 # (-*- shell-script -*-)
 # Common aliases
 
-alias df="df -h"
+alias reload_aliases="source ~/.zsh/aliases"
+alias reload_functions="source ~/.zsh/functions"
 alias reload_hist="fc -RI"
+
+alias df="df -h"
 alias f="find . |grep -i"
 alias h="history"
 alias l="less"
@@ -74,7 +77,8 @@ if [ $MODERN_ZSH = "t" ]; then
   alias -s tar="tar -xvf"
   alias -s gz="tar -zxvf"
   alias -s bz2="tar -jxvf"
+  alias -s git="git clone"
   alias -s zip=unzip
   alias -s txt=less
-  alias -s git="git clone"
+  alias -s conf=emacs
 fi
