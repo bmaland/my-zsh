@@ -3,6 +3,7 @@
 
 alias reload_aliases="source ~/.zsh/aliases"
 alias reload_functions="source ~/.zsh/functions"
+alias reload_host="source ~/.zsh/hosts/`hostname -s`"
 alias reload_hist="fc -RI"
 
 alias df="df -h"
