@@ -5,6 +5,7 @@ set-term-title() {
   echo -ne "\033]2;${1}\007"
 }
 
+export PATH="/home/bjorn/dotfiles/bin:$PATH"
 export EDITOR=emacs
 export FCEDIT=$EDITOR
 export SVN_EDITOR=$EDITOR

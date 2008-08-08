@@ -21,6 +21,7 @@ if [ -d /Applications/Aquamacs\ Emacs.app ]; then
   }
 fi
 
+export PATH="/Users/bjorn/dotfiles/bin:$PATH"
 export EDITOR=emacs
 export FCEDIT=$EDITOR
 export SVN_EDITOR=$EDITOR
