@@ -18,7 +18,7 @@ source ~/.zsh/aliases
 # Load os specific settings
 if [[ $OS = linux ]]; then
   # Try to figure out which distro we are on
-  if cat /etc/motd | grep Ubuntu; then
+  if cat /etc/motd | grep Ubuntu > /dev/null; then
     DISTRO=ubuntu
   elif [[ -f /etc/debian_version ]]; then
     DISTRO=debian
