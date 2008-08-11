@@ -1,0 +1,8 @@
+# (-*- shell-script -*-)
+# Ubuntu specifics
+
+# Don't include .UTF-8 in lang vars, required for Norwegian locales on
+# Ubuntu 7.04 server at least.
+export LANG="nn_NO"
+export LC_ALL="nn_NO"
+export LC_CTYPE="nn_NO"

@@ -28,7 +28,6 @@ export SVN_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 export BROWSER=open
 
-# Avoid "unsupported locale"-errors on osx - setting lang vars back to default
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 

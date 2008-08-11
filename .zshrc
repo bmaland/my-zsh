@@ -17,14 +17,19 @@ source ~/.zsh/aliases
 
 # Load os specific settings
 if [[ $OS = linux ]]; then
-  source ~/.zsh/linux
-
-  # Try to figure out which distro we are on and load its config
-  if [ -f /etc/debian_version ]; then
-    source ~/.zsh/debian
-  elif [ -f /etc/arch-release ]; then
-    source ~/.zsh/arch
+  # Try to figure out which distro we are on
+  if cat /etc/motd | grep Ubuntu; then
+    DISTRO=ubuntu
+  elif [[ -f /etc/debian_version ]]; then
+    DISTRO=debian
+  elif [[ -f /etc/arch-release ]]; then
+    DISTRO=arch
+  elif [[ -f /etc/redhat-release ]]; then
+    DISTRO=redhat
   fi
+
+  source ~/.zsh/linux
+  if [ $DISTRO ]; then source ~/.zsh/$DISTRO; fi
 else
   source ~/.zsh/osx
 fi

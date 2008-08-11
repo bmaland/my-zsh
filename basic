@@ -48,7 +48,7 @@ limit coredumpsize 0
 
 # SHELL VARIABLES
 
-# User dircolors where available
+# Use dircolors where available
 if which dircolors > /dev/null; then
   eval $(dircolors -b)
 else
@@ -83,10 +83,6 @@ export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;36'
 export PAGER=less
 export LESS="-iMSx4 -FX --quiet"
-
-export LANG="nn_NO.UTF-8"
-export LC_ALL="nn_NO.UTF-8"
-export LC_CTYPE="nn_NO.UTF-8"
 
 # Completion Styles
 

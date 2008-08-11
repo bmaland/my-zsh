@@ -1,9 +1,7 @@
 # (-*- shell-script -*-)
 # Common aliases
 
-alias reload_aliases="source ~/.zsh/aliases"
-alias reload_functions="source ~/.zsh/functions"
-alias reload_host="source ~/.zsh/hosts/`hostname -s`"
+alias reload_zshrc="source ~/.zshrc"
 alias reload_hist="fc -RI"
 
 alias df="df -h"
@@ -50,10 +48,12 @@ alias gb="git branch --color"
 alias gcm="git commit -a -v"
 alias gco="git checkout"
 alias grhh="git reset --hard HEAD"
+alias grsh="git reset --soft HEAD"
 alias gdh="git diff HEAD"
 alias gdhh="git diff HEAD\^"
 alias gdhhh="git diff HEAD\^\^"
-alias gp="git push origin master"
+alias gps="git push origin master"
+alias gpu="git pull origin master"
 alias gpt="git push --tags"
 
 # Global aliases

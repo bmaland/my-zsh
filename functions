@@ -3,7 +3,7 @@
 
 set-title() {
   if [[ $TERM = screen ]]; then
-    screen -X title $1
+    screen -X title `hostname -s`:$1 2> /dev/null
   elif echo $TERM | grep -q xterm; then
     set-term-title `hostname -s`:$1
   fi
@@ -11,7 +11,7 @@ set-title() {
 
 set-program-title() {
   case $1 in
-    screen|top|htop|emacs|vi)
+    screen|top|htop|emacs|vi|irssi|mutt)
       set-title $1
       ;;
     *)
