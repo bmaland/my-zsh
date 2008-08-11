@@ -2,16 +2,14 @@
 # Shared functions
 
 set-title() {
-  if [[ $TERM = screen ]]; then
-    screen -X title `hostname -s`:$1 > /dev/null
-  elif echo $TERM | grep -q xterm; then
+  if echo $TERM | grep -q xterm; then
     set-term-title `hostname -s`:$1
   fi
 }
 
 set-program-title() {
   case $1 in
-    screen|top|htop|emacs|vi|irssi|mutt)
+    screen|top|htop|emacs|vi|vim|irssi|aptitude)
       set-title $1
       ;;
     *)
