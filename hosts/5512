@@ -1,0 +1,8 @@
+# (-*- shell-script -*-)
+
+export LANG="nn_NO"
+export LC_ALL="nn_NO"
+export LC_CTYPE="nn_NO"
+
+alias cmb="sudo chown -R bjorn:bjorn"
+alias cmo="sudo chown -R obvdeploy:obvdeploy"
