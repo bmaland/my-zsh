@@ -6,10 +6,8 @@ setopt CORRECT_ALL          # Try to correct the spelling of all arguments in a 
 setopt EXTENDED_GLOB        # Treat the `#', `~' and `^' characters as part of patterns
 setopt EXTENDED_HISTORY     # Puts timestamps in the history
 setopt HASH_LIST_ALL        # Make sure the entire command path is hashed first
-setopt HIST_IGNORE_ALL_DUPS # Remove old dups
 setopt HIST_IGNORE_DUPS     # Ignores consecutive duplicate lines
 setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks from each command line being added to the history list
-setopt INC_APPEND_HISTORY   # New history lines are added to the $HISTFILE incrementally
 setopt INTERACTIVE_COMMENTS # Allow comments even in interactive shells
 setopt NOTIFY               # Report the status of background jobs immediately
 setopt GLOB_DOTS            # Do not require a leading `.' in a filename to be matched explicitly
@@ -21,22 +19,27 @@ setopt REC_EXACT            # In completion, recognize exact matches even if the
 setopt BRACE_CCL            # Expand  expressions in brace
 setopt IGNORE_EOF           # Do not exit on end-of-file
 setopt MENU_COMPLETE        # On an ambiguous completion, insert the first match immediately
-setopt NO_GLOBAL_RCS        # Ignore /etc/zshrc etc
 setopt NO_BEEP
 
+# These settings are not available in zsh pre 3.0.9
+if [[ $ANCIENT_ZSH != t ]]; then
+  setopt HIST_IGNORE_ALL_DUPS # Remove old dups
+  setopt INC_APPEND_HISTORY   # New history lines are added to the $HISTFILE incrementally
+  setopt NO_GLOBAL_RCS        # Ignore /etc/zshrc etc
 
 # Autoload zsh modules when they are referenced
-zmodload -a zsh/stat stat
-zmodload -a zsh/zpty zpty
-zmodload -a zsh/zprof zprof
+  zmodload -a zsh/stat stat
+  zmodload -a zsh/zpty zpty
+  zmodload -a zsh/zprof zprof
 
-autoload -U zmv
-autoload -U compinit
-compinit
+  autoload -U zmv
+  autoload -U compinit
+  compinit
 
-# Only  alphanumeric  characters are considered word characters
-autoload -U select-word-style
-select-word-style bash
+  # Only alphanumeric characters are considered word characters
+  autoload -U select-word-style
+  select-word-style bash
+fi
 
 if [[ $MODERN_ZSH = t ]]; then
   autoload -U zsh-mime-setup
@@ -83,7 +86,9 @@ export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;36'
 export PAGER=less
 export LESS="-iMSx4 -FX --quiet"
+export EDITOR=emacs
 
+if [[ $ANCIENT_ZSH != t ]]; then
 # Completion Styles
 
 # type a directory's name to cd to it.
@@ -160,3 +165,4 @@ zstyle '*' single-ignored show
 
 # Colors in completion
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+fi

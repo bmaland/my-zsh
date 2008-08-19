@@ -5,7 +5,7 @@ set-term-title() {
   echo -ne "\033]2;${1}\007"
 }
 
-if [[ -d /etc/init.d ]]; then # Set up support for apt-like system
+if [[ -d /etc/init.d ]]; then # Set up support for apt-like systems
   # apache
   alias as="sudo /etc/init.d/apache2 stop"
   alias ast="sudo /etc/init.d/apache2 start"
@@ -33,7 +33,6 @@ if [[ -d /etc/init.d ]]; then # Set up support for apt-like system
 fi
 
 export PATH="/home/bjorn/dotfiles/bin:$PATH"
-export EDITOR=emacs
 export FCEDIT=$EDITOR
 export SVN_EDITOR=$EDITOR
 export VISUAL=$EDITOR

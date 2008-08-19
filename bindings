@@ -9,5 +9,10 @@ bindkey '\C-z' undo # both C-z and C-x u
 bindkey '\C-i' menu-complete
 bindkey '\C-u' reverse-menu-complete
 bindkey '\C-x' kill-region
-bindkey '\C-l' infer-hist
-bindkey . rationalise-dot
+bindkey '^xk' backward-kill-line
+
+if [[ $ANCIENT_ZSH != t ]]; then
+  bindkey '\C-l' infer-hist
+  bindkey . rationalise-dot
+  bindkey '^[y' _most_recent_file
+fi

@@ -2,7 +2,7 @@
 # Shared functions
 
 set-title() {
-  if echo $TERM | grep -q xterm; then
+  if echo $TERM | grep xterm > /dev/null; then
     set-term-title `hostname -s`:$1
   fi
 }
@@ -30,23 +30,48 @@ rcup() {
   cd $pwd
 }
 
+if [[ $ANCIENT_ZSH != t ]]; then
 # Quick dirchange
-rationalise-dot() {
-  if [[ $LBUFFER = *.. ]]; then
-    LBUFFER+=/..
-  else
-    LBUFFER+=.
-  fi
-}
-zle -N rationalise-dot
+  rationalise-dot() {
+    if [[ $LBUFFER = *.. ]]; then
+      LBUFFER+=/..
+    else
+      LBUFFER+=.
+    fi
+  }
+  zle -N rationalise-dot
 
 # Reruns last command
-infer-hist() {
-  zle up-history
-  zle infer-next-history
-  zle accept-line
-}
-zle -N infer-hist
+  infer-hist() {
+    zle up-history
+    zle infer-next-history
+    zle accept-line
+  }
+  zle -N infer-hist
+
+# Ruby
+  gemdoc() {
+    local gemdir=`gem env gemdir`
+    local gem=`ls $gemdir/doc/ | grep $1 | sort | tail -1`
+
+    if [ $gem ]; then
+      eval "$BROWSER $gemdir/doc/$gem/rdoc/index.html"
+    else
+      echo "Gem not found"
+    fi
+  }
+
+  _gemdoc() {
+    compadd $(ls `gem env gemdir`/doc)
+  }
+  compdef _gemdoc gemdoc
+
+# Simple completion for psql databases
+  _psql_databases() {
+    compadd $(psql -l | grep "^ \w" |  awk -F '|' '{ printf("%s\n", $1) }' | sed 's/ //g')
+  }
+  compdef _psql_databases psql
+fi
 
 # Wrapper for bc, with scale of 4 by default
 solve() {
@@ -61,29 +86,6 @@ EOF
 function git-scoreboard () {
   git log | grep Author | sort | uniq -ci | sort -r
 }
-
-# Ruby
-gemdoc() {
-  local gemdir=`gem env gemdir`
-  local gem=`ls $gemdir/doc/ | grep $1 | sort | tail -1`
-
-  if [ $gem ]; then
-    eval "$BROWSER $gemdir/doc/$gem/rdoc/index.html"
-  else
-    echo "Gem not found"
-  fi
-}
-
-_gemdoc() {
-  compadd $(ls `gem env gemdir`/doc)
-}
-compdef _gemdoc gemdoc
-
-# Simple completion for psql databases
-_psql_databases() {
-  compadd $(psql -l | grep "^ \w" |  awk -F '|' '{ printf("%s\n", $1) }' | sed 's/ //g')
-}
-compdef _psql_databases psql
 
 zipdir() {
   zip "$@".zip -r "$@" -x "*/.DS_Store" "*/.gitignore" "*/.hgignore" "*/.hgtags" "*/.svn/*" "*/.git/*" "*/.hg/*"

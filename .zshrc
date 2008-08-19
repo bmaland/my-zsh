@@ -1,10 +1,13 @@
 # Bjørn Arild Mæland's Zsh Configuration
 
-# We define modern zsh as every version above 4.1.1
+# We define modern zsh as every version above 4.1.1, and ancient zsh as pre 3.0.9
 MODERN_ZSH=`echo "$ZSH_VERSION 4.1.1" | awk '{if ($1 > $2) print "t"; else print "f";}'`
+ANCIENT_ZSH=`echo "$ZSH_VERSION 3.0.9" | awk '{if ($1 < $2) print "t"; else print "f";}'`
 
 if [ -d /Users ]; then
   OS=osx
+elif uname -a | grep SunOS > /dev/null; then
+  OS=solaris
 else
   OS=linux
 fi
@@ -30,12 +33,17 @@ if [[ $OS = linux ]]; then
 
   source ~/.zsh/linux
   if [ $DISTRO ]; then source ~/.zsh/$DISTRO; fi
-else
+elif [[ $OS = osx ]]; then
   source ~/.zsh/osx
+elif [[ $OS = solaris ]]; then
+  source ~/.zsh/solaris
 fi
 
 # Load site specific file if it exists
-if [ -f ~/.zsh/hosts/`hostname -s` ]; then
+# NOTE this is a workaround, hostname on Solaris 9 does not support the -s option
+if [ -f ~/.zsh/hosts/$HOST ]; then
+  source ~/.zsh/hosts/$HOST
+elif [ -f ~/.zsh/hosts/`hostname -s` ]; then
   source ~/.zsh/hosts/`hostname -s`
 fi
 
