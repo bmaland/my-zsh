@@ -3,7 +3,6 @@
 # Zsh options
 setopt AUTO_CD
 setopt CORRECT_ALL          # Try to correct the spelling of all arguments in a line
-setopt EXTENDED_GLOB        # Treat the `#', `~' and `^' characters as part of patterns
 setopt EXTENDED_HISTORY     # Puts timestamps in the history
 setopt HASH_LIST_ALL        # Make sure the entire command path is hashed first
 setopt HIST_IGNORE_DUPS     # Ignores consecutive duplicate lines
@@ -16,9 +15,9 @@ setopt AUTO_LIST            # Automatically list choices on an ambiguous complet
 setopt AUTO_PUSHD           # Make cd push the old directory onto the directory stack
 setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd
 setopt REC_EXACT            # In completion, recognize exact matches even if they are ambiguous.
-setopt BRACE_CCL            # Expand  expressions in brace
 setopt IGNORE_EOF           # Do not exit on end-of-file
 setopt MENU_COMPLETE        # On an ambiguous completion, insert the first match immediately
+setopt NO_BAD_PATTERN
 setopt NO_BEEP
 
 # These settings are not available in zsh pre 3.0.9

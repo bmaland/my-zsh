@@ -28,6 +28,7 @@ _service() {
 compdef _service service
 
 # pacman
+alias pacman="pacman-color"
 alias squ="pacman -Q|grep -i"
 alias sse="pacman -Ss |grep -i"
 alias sin="sudo pacman -S"
