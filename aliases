@@ -69,7 +69,7 @@ alias -g HL="| head -20"
 alias -g T="| tail"
 alias -g TL="| tail -20"
 alias -g VM=/var/log/messages
-alias -g C="| wc -l"
+alias -g N="| wc -l"
 alias -g L="|less" # command L equivalent to command |less
 alias -g S="&> /dev/null &" # command S equivalent to command &> /dev/null &
 
@@ -77,6 +77,7 @@ alias -g S="&> /dev/null &" # command S equivalent to command &> /dev/null &
 if [ $MODERN_ZSH = "t" ]; then
   alias -s tar="tar -xvf"
   alias -s gz="tar -zxvf"
+  alias -s tgz="tar -zxvf"
   alias -s bz2="tar -jxvf"
   alias -s git="git clone"
   alias -s zip=unzip
