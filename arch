@@ -3,13 +3,6 @@
 
 # Functions
 
-paste-xclip() {
-  BUFFER=$BUFFER"`xclip -o`"
-  zle end-of-line
-}
-
-zle -N paste-xclip
-
 remove_orphans() {
   for pkg in `pacman -Qdt|awk -F ' ' '{ printf("%s\n", $1) }'`; do
     sudo pacman -R $pkg
@@ -34,5 +27,3 @@ alias sse="pacman -Ss |grep -i"
 alias sin="sudo pacman -S"
 alias sun="sudo pacman -R"
 alias sup="sudo pacman -Syu"
-
-bindkey '\C-v' paste-xclip

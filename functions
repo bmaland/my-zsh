@@ -1,5 +1,25 @@
 # (-*- shell-script -*-)
+
 # Shared functions
+
+# Extract & Delete
+ed() {
+  case ${1##*.} in
+    tgz|gz)
+      tar -zxvf $1 || return 1
+      ;;
+    tbz|bz2)
+      tar -jxvf $1 || return 1
+      ;;
+    zip)
+      unzip $1 || return 1
+      ;;
+    rar)
+      unrar $1 || return 1
+      ;;
+  esac
+  rm $1
+}
 
 set-title() {
   if echo $TERM | grep xterm > /dev/null; then

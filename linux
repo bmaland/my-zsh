@@ -1,11 +1,19 @@
 # (-*- shell-script -*-)
 # Linux specific stuff
 
+paste-xclip() {
+  BUFFER=$BUFFER"`xclip -o`"
+  zle end-of-line
+}
+
+zle -N paste-xclip
+bindkey '\C-v' paste-xclip
+
 set-term-title() {
   echo -ne "\033]2;${1}\007"
 }
 
-if [[ -d /etc/init.d ]]; then # Set up support for apt-like systems
+if [[ -d /etc/init.d ]]; then # Set up support for apt-like systees
   # apache
   alias as="sudo /etc/init.d/apache2 stop"
   alias ast="sudo /etc/init.d/apache2 start"
@@ -46,6 +54,7 @@ alias shutdown="sudo shutdown -h now"
 alias reboot="sudo reboot"
 alias ls="ls --color=auto"
 alias top="htop"
+alias emacs-gtk="emacs-gtk --no-site-file"
 alias emacs="emacs -nw --no-site-file"
 
 if [[ $MODERN_ZSH = t ]]; then
