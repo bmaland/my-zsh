@@ -86,6 +86,7 @@ export GREP_COLOR='1;36'
 export PAGER=less
 export LESS="-iMSx4 -FX --quiet"
 export EDITOR=emacs
+export PYTHONSTARTUP=${HOME}/.pystartup
 
 if [[ $ANCIENT_ZSH != t ]]; then
 # Completion Styles

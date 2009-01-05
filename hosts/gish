@@ -1,0 +1,3 @@
+# (-*- shell-script -*-)
+
+export CDPATH="/home/bjorn/work:/home/bjorn/foss"
