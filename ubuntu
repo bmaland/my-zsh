@@ -1,2 +1,4 @@
 # (-*- shell-script -*-)
 # Ubuntu specifics
+
+export BROWSER="firefox -n"

@@ -18,6 +18,7 @@ alias screen="screen -U"
 alias srd="screen -U -r -d"
 alias vi="vim" # Default to vim
 alias x="exit"
+alias conk="conkeror"
 
 # Ruby
 alias irb="irb --readline -r irb/completion"

@@ -1,14 +1,9 @@
 # (-*- shell-script -*-)
 
-export PYTHONSTARTUP=${HOME}/.pystartup
 export CDPATH="/home/bjorn/work:/home/bjorn/foss:/home/bjorn/foss/ruby:/home/bjorn/Webdev"
 export PATH="/home/bjorn/mosml/bin:/opt/java/bin:/usr/bin/perlbin/site:/usr/bin/perlbin/vendor:/usr/bin/perlbin/core:$PATH"
-export BROWSER="epiphany -n"
+export BROWSER="firefox -n"
 
-alias conk="conkeror"
 alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""'
 
 alias -s {html,php,org,com,net}=$BROWSER
-alias -s {jpeg,jpg,JPEG,JPG,png,gif,xpm}=mirage
-alias -s {avi,mkv,mpg,mpeg,vmw,mov,rm,ogv}=vlc
-alias -s pdf=evince
