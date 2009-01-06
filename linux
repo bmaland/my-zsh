@@ -13,7 +13,7 @@ set-term-title() {
   echo -ne "\033]2;${1}\007"
 }
 
-if [[ -d /etc/init.d ]]; then # Set up support for apt-like systees
+if [[ $DISTRO = "ubuntu" || $DISTRO = "debian" ]]; then # Set up support for apt-like systems
   # apache
   alias as="sudo /etc/init.d/apache2 stop"
   alias ast="sudo /etc/init.d/apache2 start"
