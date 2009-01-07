@@ -18,6 +18,9 @@ source ~/.zsh/functions
 source ~/.zsh/bindings
 source ~/.zsh/aliases
 
+# This is required to make Tramp work
+[ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
+
 # Load os specific settings
 if [[ $OS = linux ]]; then
   # Try to figure out which distro we are on
