@@ -44,6 +44,7 @@ export PATH="/home/bjorn/dotfiles/bin:$PATH"
 export FCEDIT=$EDITOR
 export SVN_EDITOR=$EDITOR
 export VISUAL=$EDITOR
+export BROWSER="firefox"
 
 export LANG="nb_NO.UTF-8"
 export LC_ALL="nb_NO.UTF-8"
