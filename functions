@@ -174,9 +174,9 @@ sci() {
   set_scm
   if [ $GIT -eq 1 ]; then
     if [ -z $@ ]; then
-      git commit -a
+      git commit
     else
-      git commit -a -m $@
+      git commit -m $@
     fi
   elif [ $SVN -eq 1 ]; then
     svn ci -m $@
