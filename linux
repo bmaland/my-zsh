@@ -40,7 +40,7 @@ if [[ $DISTRO = "ubuntu" || $DISTRO = "debian" ]]; then # Set up support for apt
   compdef _service service
 fi
 
-export PATH="/home/bjorn/dotfiles/bin:$PATH"
+export PATH="$HOME/dotfiles/bin:$PATH"
 export FCEDIT=$EDITOR
 export SVN_EDITOR=$EDITOR
 export VISUAL=$EDITOR
