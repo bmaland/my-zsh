@@ -40,7 +40,9 @@ if [[ $DISTRO = "ubuntu" || $DISTRO = "debian" ]]; then # Set up support for apt
   compdef _service service
 fi
 
-export PATH="$HOME/dotfiles/bin:$PATH"
+# zsh's git completion requires some of the binaries in /usr/lib/git-core
+export PATH="$HOME/dotfiles/bin:/usr/lib/git-core/:$PATH"
+
 export FCEDIT=$EDITOR
 export SVN_EDITOR=$EDITOR
 export VISUAL=$EDITOR

@@ -93,13 +93,9 @@ if [[ $ANCIENT_ZSH != t ]]; then
   compdef _psql_databases psql
 fi
 
-# Wrapper for bc, with scale of 4 by default
+# Wrapper for math expressions
 solve() {
-  bc <<EOF
-  scale=4
-  $@
-  quit
-EOF
+  print $(( $@ ))
 }
 
 # Git
