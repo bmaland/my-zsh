@@ -21,6 +21,13 @@ ed() {
   rm $1
 }
 
+# Prefix the previous line with "sudo " then execute it
+rerun-with-sudo () {
+  LBUFFER="sudo !!"
+  zle accept-line
+}
+zle -N rerun-with-sudo
+
 set-title() {
   if echo $TERM | grep xterm > /dev/null; then
     set-term-title `hostname -s`:$1

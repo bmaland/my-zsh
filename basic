@@ -17,13 +17,15 @@ setopt PUSHD_SILENT         # Do not print the directory stack after pushd or po
 setopt REC_EXACT            # In completion, recognize exact matches even if they are ambiguous.
 setopt IGNORE_EOF           # Do not exit on end-of-file
 setopt MENU_COMPLETE        # On an ambiguous completion, insert the first match immediately
+setopt FUNCTION_ARGZERO     # When  executing a shell function or sourcing a
+                            # script, set $0 temporarily to the name of the function/script
 setopt NO_BAD_PATTERN
 setopt NO_BEEP
 
 # These settings are not available in zsh pre 3.0.9
 if [[ $ANCIENT_ZSH != t ]]; then
   setopt HIST_IGNORE_ALL_DUPS # Remove old dups
-  setopt INC_APPEND_HISTORY   # New history lines are added to the $HISTFILE incrementally
+  setopt INC_APPEND_HISTORY   # New history lines are added to the $HISTFILE as soon as they are entered
   setopt NO_GLOBAL_RCS        # Ignore /etc/zshrc etc
 
 # Autoload zsh modules when they are referenced
@@ -68,7 +70,7 @@ fi
 export ZLS_COLORS=$LS_COLORS
 
 # Prompt
-export PS1="$(print '%{\e[1;31m%}%m%{\e[0m%}'):%~ $ "
+export PROMPT="$(print '%{\e[1;31m%}%m%{\e[0m%}'):%~ $ "
 
 # History
 export HISTSIZE=5000

@@ -8,8 +8,11 @@ bindkey '\C-p' history-search-backward
 bindkey '\C-z' undo # both C-z and C-x u
 bindkey '\C-i' menu-complete
 bindkey '\C-u' reverse-menu-complete
-bindkey '\C-x' kill-region
+bindkey '\C-x\C-k' kill-region
+bindkey '\C-p' push-line
+bindkey '\C-g' get-line
 bindkey '^xk' backward-kill-line
+bindkey '\C-x\C-e' rerun-with-sudo
 
 if [[ $ANCIENT_ZSH != t ]]; then
   bindkey '\C-l' infer-hist
