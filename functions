@@ -29,14 +29,23 @@ rerun-with-sudo () {
 zle -N rerun-with-sudo
 
 set-title() {
-  if echo $TERM | grep xterm > /dev/null; then
-    set-term-title `hostname -s`:$1
-  fi
+  case $TERM in
+    xterm*|rxvt*)
+      # Note that set-term-title is defined for both linux and osx,
+      # to handle different terminal emulator apps.
+      set-term-title `hostname -s`:$1
+      ;;
+    screen*)
+      echo -ne "\ek`basename ${1%% *}`\e\\"
+      ;;
+    *)
+      ;;
+  esac
 }
 
 set-program-title() {
   case $1 in
-    screen|top|htop|emacs|vi|vim|irssi|aptitude)
+    screen|top|htop|emacs|vi|vim|irssi|aptitude|pacman|yaourt)
       set-title $1
       ;;
     *)
@@ -58,7 +67,7 @@ rcup() {
 }
 
 if [[ $ANCIENT_ZSH != t ]]; then
-# Quick dirchange
+  # Quick dirchange
   rationalise-dot() {
     if [[ $LBUFFER = *.. ]]; then
       LBUFFER+=/..
@@ -68,7 +77,7 @@ if [[ $ANCIENT_ZSH != t ]]; then
   }
   zle -N rationalise-dot
 
-# Reruns last command
+  # Reruns last command
   infer-hist() {
     zle up-history
     zle infer-next-history
@@ -76,7 +85,7 @@ if [[ $ANCIENT_ZSH != t ]]; then
   }
   zle -N infer-hist
 
-# Ruby
+  # Ruby
   gemdoc() {
     local gemdir=`gem env gemdir`
     local gem=`ls $gemdir/doc/ | grep $1 | sort | tail -1`
@@ -93,7 +102,7 @@ if [[ $ANCIENT_ZSH != t ]]; then
   }
   compdef _gemdoc gemdoc
 
-# Simple completion for psql databases
+  # Simple completion for psql databases
   _psql_databases() {
     compadd $(psql -l | grep "^ \w" |  awk -F '|' '{ printf("%s\n", $1) }' | sed 's/ //g')
   }
