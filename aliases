@@ -16,7 +16,6 @@ alias psg="ps aux | grep"
 alias trail="tail -n 300 -f"
 alias screen="screen -U"
 alias srd="screen -U -r -d"
-alias vi="vim" # Default to vim
 alias x="exit"
 alias conk="conkeror"
 alias github='$BROWSER `git config -l | sed -rn "s^remote.origin.url=git(@|://)(github.com)(:|/)(.+/.+).git^https://\2/\4^p"`'
