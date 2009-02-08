@@ -4,7 +4,6 @@
 export PATH="/opt/java/bin:$PATH"
 
 # Functions
-
 remove_orphans() {
   for pkg in `pacman -Qdt|awk -F ' ' '{ printf("%s\n", $1) }'`; do
     sudo pacman -R $pkg
@@ -28,3 +27,10 @@ alias sse="pacman -Ss |grep -i"
 alias sin="sudo pacman -S"
 alias sun="sudo pacman -R"
 alias sup="sudo pacman -Syu"
+
+# yaourt
+alias yqu="yaourt -Q|grep -i"
+alias yse="yaourt -Ss"
+alias yin="sudo yaourt -S"
+alias yun="sudo yaourt -R"
+alias yup="sudo yaourt -Syu"
