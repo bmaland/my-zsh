@@ -1,6 +1,8 @@
 # (-*- shell-script -*-)
 # Specific for Arch Linux
 
+export PATH="/opt/java/bin:$PATH"
+
 # Functions
 
 remove_orphans() {

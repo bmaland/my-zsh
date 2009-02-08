@@ -48,9 +48,9 @@ export SVN_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 export BROWSER="firefox"
 
-export LANG="nb_NO.UTF-8"
-export LC_ALL="nb_NO.UTF-8"
-export LC_CTYPE="nb_NO.UTF-8"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
 
 alias e=$EDITOR
 alias shutdown="sudo shutdown -h now"
