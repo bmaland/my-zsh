@@ -4,14 +4,14 @@
 bindkey -e # Force emacs editing mode
 bindkey ' ' magic-space    # also do history expansion on space, for i.e !:1
 bindkey '\C-r' history-incremental-search-backward
-bindkey '\C-p' history-search-backward
-bindkey '\C-z' undo # both C-z and C-x u
+bindkey '\C-xr' history-search-backward
+bindkey '\C-z' undo
 bindkey '\C-i' menu-complete
 bindkey '\C-u' reverse-menu-complete
 bindkey '\C-x\C-k' kill-region
-bindkey '\C-p' push-line
-bindkey '\C-g' get-line
-bindkey '^xk' backward-kill-line
+bindkey '\C-xm' menu-select
+bindkey '\C-xp' push-line
+bindkey '^xw' backward-kill-line
 bindkey '\C-x\C-e' rerun-with-sudo
 
 if [[ $ANCIENT_ZSH != t ]]; then

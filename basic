@@ -97,12 +97,16 @@ if [[ $ANCIENT_ZSH != t ]]; then
 compctl -/ cd
 
 # list of completers to use
-zstyle ':completion:*::::' completer _complete _correct _approximate
+zstyle ':completion:*::::' completer _complete _correct _approximate _ignored
+
+# defaults
+zstyle ':completion:*:default' list-prompt '%S%M matches%s'
 
 # match uppercase from lowercase
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 zstyle ':completion:*' expand 'yes'
+zstyle ':completion:*:expand:*' accept-exact true
 
 # Completion of hostnames, pulled out of ~/.ssh/config.
 local _myhosts
@@ -116,6 +120,9 @@ zstyle ':completion:*' users off
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
+# x windows
+zstyle ':completion:*:windows' menu on=0
+
 # Expand man pages
 zstyle ':completion:*:manuals' separate-sections true
 
@@ -128,21 +135,23 @@ zstyle ':completion:*:expand:*' keep-prefix true tag-order all-expansions
 
 # formatting and messages
 zstyle ':completion:*' verbose yes
+zstyle ':completion:*' list-separator '#'
 zstyle ':completion:*:descriptions' format '%B%d%b'
 zstyle ':completion:*:messages' format '%d'
 zstyle ':completion:*:warnings' format 'No matches for: %d'
 zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
 zstyle ':completion:*' group-name ''
-zstyle ':completion:*' list-separator '#'
 zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*:default' list-prompt '%S%M matches%s'
 zstyle ':completion:*:prefix:*' add-space true
 
 # Ignore
-zstyle ':completion:*:*files' ignored-patterns '*?.o' '*?~'
+zstyle ':completion:*:*files' ignored-patterns '*?.o' '*?~' '*\#'
+zstyle ':completion:*:*directories' ignored-patterns '.*'
 zstyle ':completion:*:*cd:*' ignored-patterns '(*/|)(CVS|SCCS|SVN|GIT|HG)'
-zstyle ':completion::*:(git|less|rm|emacs)' ignore-line true
+zstyle ':completion::complete:*:functions' ignored-patterns '_*'
 zstyle ':completion:*' ignore-parents parent pwd
+# dont display same match twice for these
+zstyle ':completion::*:(git|less|rm|emacs)' ignore-line true
 
 # offer indexes before parameters in subscripts
 zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
