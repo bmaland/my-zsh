@@ -36,7 +36,7 @@ set-title() {
       set-term-title `hostname -s`:$1
       ;;
     screen*)
-      echo -ne "\ek`basename ${1%% *}`\e\\"
+      echo -ne "\ek`hostname -s`:`basename ${1%% *}`\e\\"
       ;;
     *)
       ;;
