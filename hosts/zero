@@ -2,10 +2,9 @@
 
 # SHELL VARIABLES
 
+export PATH="/opt/local/lib/postgresql83/bin:$PATH"
 export CDPATH="/Users/bjorn/foss:/Users/bjorn/foss/ruby:/Users/bjorn/Webdev:/Users/bjorn/work"
 
-export GEM_HOME="/opt/local/lib/ruby/gems/1.8"
-export GEM_PATH="/opt/local/lib/ruby/gems/1.8"
 export ADAPTER="postgresql"
 export DATABASE="datamapper"
 export USERNAME="bjorn"
