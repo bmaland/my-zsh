@@ -89,7 +89,7 @@ export PAGER=less
 export LESS="-iMSx4 -FX --quiet"
 export EDITOR=emacs
 export PYTHONSTARTUP=${HOME}/.pystartup
-export CLOJURE_HOME=${HOME}/src/clojure
+export CLOJURE_HOME=${HOME}/src/clojurecd .zs
 
 if [[ $ANCIENT_ZSH != t ]]; then
 # Completion Styles
