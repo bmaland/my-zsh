@@ -88,6 +88,7 @@ export GREP_COLOR='1;36'
 export PAGER=less
 export LESS="-iMSx4 -FX --quiet"
 export PYTHONSTARTUP=${HOME}/.pystartup
+export CLOJURE_HOME=${HOME}/src/clojure
 
 # -c, --create-frame      Create a new frame instead of trying to
 #                         use the current Emacs frame
