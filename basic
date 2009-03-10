@@ -87,8 +87,14 @@ export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;36'
 export PAGER=less
 export LESS="-iMSx4 -FX --quiet"
-export EDITOR=emacs
 export PYTHONSTARTUP=${HOME}/.pystartup
+
+# -c, --create-frame      Create a new frame instead of trying to
+#                         use the current Emacs frame
+# -a, --alternate-editor=EDITOR
+#                         Editor to fallback to if the server is not running
+export EDITOR="emacsclient -n -c -a vim"
+export VISUAL="emacsclient -n -c -a vim"
 
 if [[ $ANCIENT_ZSH != t ]]; then
 # Completion Styles

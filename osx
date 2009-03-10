@@ -7,6 +7,7 @@ set-term-title() {
 }
 
 # Check if Aquamacs is present
+# TODO make this work with Carbon Emacs
 if [ -d /Applications/Aquamacs\ Emacs.app ]; then
   emacs() {
     # The files have to exist before they can be opened

@@ -45,7 +45,6 @@ export PATH="$HOME/dotfiles/bin:/usr/lib/git-core/:$PATH"
 
 export FCEDIT=$EDITOR
 export SVN_EDITOR=$EDITOR
-export VISUAL=$EDITOR
 export BROWSER="firefox"
 
 export LANG="en_US.UTF-8"
@@ -57,8 +56,6 @@ alias shutdown="sudo shutdown -h now"
 alias reboot="sudo reboot"
 alias ls="ls --color=auto"
 alias top="htop"
-alias emacs-gtk="emacs-gtk --no-site-file"
-alias emacs="emacs -nw --no-site-file"
 
 if [[ $MODERN_ZSH = t ]]; then
   alias -s {lisp,sml,php,js}=$EDITOR
