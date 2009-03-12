@@ -5,19 +5,22 @@
 # Extract & Delete
 ed() {
   case ${1##*.} in
+    tar)
+      tar -xvf $1
+      ;;
     tgz|gz)
-      tar -zxvf $1 || return 1
+      tar -zxvf $1
       ;;
     tbz|tbz2|bz2)
-      tar -jxvf $1 || return 1
+      tar -jxvf $1
       ;;
     zip)
-      unzip $1 || return 1
+      unzip $1
       ;;
     rar)
-      unrar $1 || return 1
+      unrar x $1
       ;;
-  esac
+  esac || return 1
   rm $1
 }
 
