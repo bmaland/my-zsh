@@ -2,6 +2,7 @@
 # Specific for Arch Linux
 
 export PATH="/opt/java/bin:$PATH"
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # Functions
 remove_orphans() {

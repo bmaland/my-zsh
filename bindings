@@ -12,7 +12,7 @@ bindkey '\C-x\C-k' kill-region
 bindkey '\C-xm' menu-select
 bindkey '\C-xp' push-line
 bindkey '^xw' backward-kill-line
-bindkey '\C-x\C-e' rerun-with-sudo
+bindkey '\C-x\C-x' rerun-with-sudo
 
 if [[ $ANCIENT_ZSH != t ]]; then
   bindkey '\C-l' infer-hist
