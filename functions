@@ -20,7 +20,10 @@ ed() {
     rar)
       unrar x $1
       ;;
-  esac || return 1
+    *)
+      return 1
+      ;;
+  esac || return 1 # if extraction failed
   rm $1
 }
 
