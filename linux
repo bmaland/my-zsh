@@ -61,6 +61,6 @@ alias top="htop"
 if [[ $MODERN_ZSH = t ]]; then
   alias -s {lisp,sml,php,js}=$EDITOR
   alias -s {jpeg,jpg,JPEG,JPG,png,gif,xpm}=mirage
-  alias -s {avi,mkv,mpg,mpeg,vmw,mov,rm,flv,ogv,ogg}=vlc
+  alias -s {avi,mkv,mpg,mpeg,vmw,mov,rm,flv,ogv,ogg,mp4}=gnome-mplayer
   alias -s {pdf,ps}=evince
 fi
