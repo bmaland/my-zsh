@@ -2,7 +2,7 @@
 
 # SHELL VARIABLES
 
-export PATH="/opt/local/lib/postgresql83/bin:$PATH"
+export PATH="/usr/local/git/bin:/opt/local/lib/postgresql83/bin:$PATH"
 export CDPATH="/Users/bjorn/foss:/Users/bjorn/foss/ruby:/Users/bjorn/Webdev:/Users/bjorn/work"
 
 export ADAPTER="postgresql"
