@@ -18,7 +18,6 @@ alias screen="screen -U"
 alias srd="screen -U -r -d"
 alias x="exit"
 alias conk="conkeror"
-alias github='$BROWSER `git config -l | sed -rn "s^remote.origin.url=git(@|://)(github.com)(:|/)(.+/.+).git^https://\2/\4^p"`'
 
 # Ruby
 alias irb="irb --readline -r irb/completion"
