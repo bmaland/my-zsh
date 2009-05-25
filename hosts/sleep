@@ -1,15 +1,13 @@
 # (-*- shell-script -*-)
 
 export SDL_AUDIODRIVER="alsa"
-export JRUBY_HOME="/home/bjorn/foss/jruby"
-export CLASSPATH="$JRUBY_HOME/lib:$JRUBY_HOME/build_lib:/home/bjorn/foss/clojure-contrib:/home/bjorn/foss/clojure"
+export JRUBY_HOME="/opt/jruby"
+export CLASSPATH="$JRUBY_HOME/lib:/home/bjorn/src/clojure-contrib:/home/bjorn/src/clojure"
 export PYTHONSTARTUP=${HOME}/.pystartup
-export CDPATH=".:/home/bjorn/work:/home/bjorn/foss:/home/bjorn/foss/ruby:/home/bjorn/Webdev"
-export PATH="/home/bjorn/mosml/bin:/opt/java/bin:/usr/bin/perlbin/site:/usr/bin/perlbin/vendor:/usr/bin/perlbin/core:/home/bjorn/opt/groovy-1.5.7/bin:$PATH:$JRUBY_HOME/bin"
+export CDPATH=".:/home/bjorn/Projects"
+export PATH="$PATH:$JRUBY_HOME/bin"
 export OOO_FORCE_DESKTOP=gnome
 export DELPHINHOME=/home/bjorn/delphin
-
-alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""'
 
 alias -s {html,php,org,com,net}=$BROWSER
 

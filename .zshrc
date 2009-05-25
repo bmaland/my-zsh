@@ -24,8 +24,10 @@ source ~/.zsh/aliases
 # Load os specific settings
 if [[ $OS = linux ]]; then
   # Try to figure out which distro we are on
-  if cat /etc/motd | grep -q Ubuntu; then
-    DISTRO=ubuntu
+  if [[ -f /etc/lsb-release ]]; then
+    if cat /etc/lsb-release | grep -q Ubuntu; then
+      DISTRO=ubuntu
+    fi
   elif [[ -f /etc/debian_version ]]; then
     DISTRO=debian
   elif [[ -f /etc/arch-release ]]; then
