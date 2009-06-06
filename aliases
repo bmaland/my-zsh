@@ -52,9 +52,10 @@ alias grsh="git reset --soft HEAD"
 alias gdh="git diff HEAD"
 alias gdhh="git diff HEAD\^"
 alias gdhhh="git diff HEAD\^\^"
-alias gps="git push origin master"
+alias gpf="git push origin master"
 alias gpu="git pull origin master"
 alias gpt="git push --tags"
+alias gph="git push heroku master"
 
 # Global aliases
 alias -g ...="../.."
