@@ -37,6 +37,7 @@ if [[ $MODERN_ZSH = t ]]; then
   alias -s {html,org,com,net,doc,odt,rtf,jpeg,jpg,JPEG,JPG,png,gif,xpm,avi,mpg,mpeg,vmw,mov,rm,pdf}=open
 fi
 
+alias wget="curl -O"
 alias e=$EDITOR
 alias o=open
 alias dmesg="sudo dmesg" # sudo required for dmesg on osx
