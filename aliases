@@ -33,6 +33,7 @@ alias devlog="tail -F log/development.log"
 alias rem="rake db:migrate VERSION=0 && rake db:migrate"
 alias remm="rake db:drop && rake db:create && rake db:migrate"
 alias rdm="rake db:migrate"
+alias rdmr="rake db:migrate:redo"
 alias rdmp="RAILS_ENV=production rake db:migrate"
 
 # gem
@@ -52,8 +53,8 @@ alias grsh="git reset --soft HEAD"
 alias gdh="git diff HEAD"
 alias gdhh="git diff HEAD\^"
 alias gdhhh="git diff HEAD\^\^"
-alias gpf="git push origin master"
-alias gpu="git pull origin master"
+alias gpp="git push origin master"
+alias gpf="git pull origin master"
 alias gpt="git push --tags"
 alias gph="git push heroku master"
 
