@@ -5,11 +5,14 @@ export JRUBY_HOME="/opt/jruby"
 export CLASSPATH="$JRUBY_HOME/lib:/home/bjorn/src/clojure-contrib:/home/bjorn/src/clojure"
 export PYTHONSTARTUP=${HOME}/.pystartup
 export CDPATH=".:/home/bjorn/Projects"
-export PATH="$PATH:$JRUBY_HOME/bin"
+export PATH="/var/lib/gems/1.8/bin:/usr/bin:/usr/local/bin:$PATH:$JRUBY_HOME/bin"
 export OOO_FORCE_DESKTOP=gnome
 export DELPHINHOME=/home/bjorn/delphin
 
 alias -s {html,php,org,com,net}=$BROWSER
+
+alias gin="sudo /usr/bin/gem install"
+alias gup="sudo /usr/bin/gem update"
 
 # disable ^s freeze
 stty -ixon
