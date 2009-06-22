@@ -116,9 +116,11 @@ zstyle ':completion:*' expand 'yes'
 zstyle ':completion:*:expand:*' accept-exact true
 
 # Completion of hostnames, pulled out of ~/.ssh/config.
-local _myhosts
-_myhosts=( $(cat ~/.ssh/config|grep '^H'|cut -d ' ' -f 2) )
-zstyle ':completion:*' hosts ${_myhosts[1,-2]} # Slices off the last entry
+if [ -f ~/.ssh/config ]; then
+  local _myhosts
+  _myhosts=( $(cat ~/.ssh/config|grep '^H'|cut -d ' ' -f 2) )
+  zstyle ':completion:*' hosts ${_myhosts[1,-2]} # Slices off the last entry
+fi
 
 # Disable completion of usernames
 zstyle ':completion:*' users off
