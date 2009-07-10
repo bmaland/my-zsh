@@ -2,10 +2,12 @@
 
 # SHELL VARIABLES
 
-export PATH="/usr/local/git/bin:/opt/local/lib/postgresql83/bin:$PATH"
+export JRUBY_HOME="/opt/jruby"
+export PATH="/Library/PostgreSQL/8.3/bin:/usr/local/git/bin:/usr/local/git/libexec/git-core:/usr/local/mysql/bin:$PATH:$JRUBY_HOME/bin"
 export CDPATH="/Users/bjorn/foss:/Users/bjorn/foss/ruby:/Users/bjorn/Webdev:/Users/bjorn/work"
 
 export ADAPTER="postgresql"
 export DATABASE="datamapper"
 export USERNAME="bjorn"
 export JAVA_HOME="/Library/Java/Home"
+

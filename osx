@@ -38,7 +38,7 @@ if [[ $MODERN_ZSH = t ]]; then
 fi
 
 alias wget="curl -O"
-alias e=$EDITOR
+alias e=open -a $EDITOR
 alias o=open
 alias dmesg="sudo dmesg" # sudo required for dmesg on osx
 
