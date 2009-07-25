@@ -44,6 +44,9 @@ alias gqu="gem list | grep -i"
 alias gin="sudo gem install"
 alias gun="sudo gem uninstall"
 alias gup="sudo gem update"
+alias gin19="sudo gem1.9 install --format-executable"
+alias gun19="sudo gem1.9 uninstall"
+alias gup19="sudo gem1.9 update"
 
 # git
 alias gb="git branch --color"

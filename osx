@@ -34,7 +34,7 @@ export LANG="en_US.UTF-8"
 
 if [[ $MODERN_ZSH = t ]]; then
   alias -s {php,txt,lisp,sml,php,js}=$EDITOR
-  alias -s {html,org,com,net,doc,odt,rtf,jpeg,jpg,JPEG,JPG,png,gif,xpm,avi,mpg,mpeg,vmw,mov,rm,pdf}=open
+  alias -s {html,org,com,net,doc,odt,rtf,jpeg,jpg,JPEG,JPG,png,gif,xpm,avi,mp4,mpg,mpeg,vmw,mov,rm,pdf}=open
 fi
 
 alias wget="curl -O"
