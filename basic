@@ -89,6 +89,7 @@ export PAGER=less
 export LESS="-iMSx4 -FX --quiet"
 export PYTHONSTARTUP=${HOME}/.pystartup
 export CLOJURE_HOME=${HOME}/src/clojure
+export MAVEN_OPTS="-Xmx512m"
 
 # -c, --create-frame      Create a new frame instead of trying to
 #                         use the current Emacs frame
