@@ -41,25 +41,9 @@ alias rtags="ctags-exuberant -a -e -f TAGS --tag-relative -R app lib vendor"
 alias gl="gem list"
 alias gse="gem list -r | grep -i"
 alias gqu="gem list | grep -i"
-alias gin="sudo gem install"
-alias gun="sudo gem uninstall"
-alias gup="sudo gem update"
-alias gl19="gem1.9 list"
-alias gse19="gem1.9 list -r | grep -i"
-alias gqu19="gem1.9 list | grep -i"
-alias gin19="sudo gem1.9 install --format-executable"
-alias gun19="sudo gem1.9 uninstall"
-alias gup19="sudo gem1.9 update"
-alias jgup="jruby -S gem update"
-alias jgin="jruby -S gem install"
-alias jgqu="jruby -S gem list | grep -i"
-alias jgse="jruby -S gem list -r | grep -i"
-
-for f in $JRUBY_HOME/bin/*; do
-  f=$(basename $f)
-  case $f in jruby*|jirb*|*.bat|*.rb|_*) continue ;; esac
-  eval "alias j$f='jruby -S $f'"
-done
+alias gin="gem install"
+alias gun="gem uninstall"
+alias gup="gem update"
 
 # git
 alias gb="git branch --color"
