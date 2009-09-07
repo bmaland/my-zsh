@@ -61,3 +61,5 @@ chpwd() {
   set-title `pwd`
 }
 set-title `pwd`
+
+if [ -f ~/.rvm/bin/rvm ] ; then source ~/.rvm/bin/rvm ; fi
