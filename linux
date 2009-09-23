@@ -51,7 +51,8 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 
-alias e=$EDITOR
+#alias e=$EDITOR
+alias e="emacsclient -nw"
 alias shutdown="sudo shutdown -h now"
 alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"

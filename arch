@@ -25,13 +25,14 @@ compdef _service service
 # pacman
 alias squ="pacman -Q|grep -i"
 alias sse="pacman -Ss |grep -i"
-alias sin="sudo pacman -S"
+alias ssi="pacman -Si"
+alias sin="sudo pacman -S --needed"
 alias sun="sudo pacman -R"
 alias sup="sudo pacman -Syu"
 
 # yaourt
 alias yqu="yaourt -Q|grep -i"
 alias yse="yaourt -Ss"
-alias yin="sudo yaourt -S"
-alias yun="sudo yaourt -R"
-alias yup="sudo yaourt -Syu"
+alias yin="yaourt -S"
+alias yun="yaourt -R"
+alias yup="yaourt -Syu"
