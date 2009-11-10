@@ -8,7 +8,7 @@ ed() {
     tar)
       tar -xvf $1
       ;;
-    tgz|gz)
+    tgz|gz|Z)
       tar -zxvf $1
       ;;
     tbz|tbz2|bz2)

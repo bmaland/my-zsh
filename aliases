@@ -19,6 +19,30 @@ alias srd="screen -U -r -d"
 alias x="exit"
 alias conk="conkeror"
 
+# Apertium
+alias n0='apertium-destxt'
+alias n1='lt-proc -w /opt/apertium/n/nn-nb.automorf.bin'
+alias n2='cg-proc -w /opt/apertium/n/nn-nb.rlx.bin'
+alias n2t='python /opt/apertium/n/dev/tagger-to-visl.py |vislcg3 -tg /opt/apertium/n/apertium-nn-nb.nn-nb.rlx'
+alias n3='apertium-tagger -g /opt/apertium/n/nn-nb.prob'
+alias n4='apertium-pretransfer'
+alias n5='apertium-transfer /opt/apertium/n/apertium-nn-nb.nn-nb.t1x /opt/apertium/n/nn-nb.t1x.bin /opt/apertium/n/nn-nb.autobil.bin'
+alias n6='lt-proc -g /opt/apertium/n/nn-nb.autogen.bin'
+alias n7='apertium-retxt'
+
+alias b0='apertium-destxt'
+alias b1='lt-proc -w /opt/apertium/n/nb-nn.automorf.bin'
+alias b2='cg-proc -w /opt/apertium/n/nb-nn.rlx.bin'
+alias b2t='python /opt/apertium/n/dev/tagger-to-visl.py |vislcg3 -tg /opt/apertium/n/apertium-nn-nb.nb-nn.rlx'
+alias b3='apertium-tagger -g /opt/apertium/n/nb-nn.prob'
+alias b4='apertium-pretransfer'
+alias b5='apertium-transfer /opt/apertium/n/apertium-nn-nb.nb-nn.t1x /opt/apertium/n/nb-nn.t1x.bin /opt/apertium/n/nb-nn.autobil.bin'
+alias b6='lt-proc -g /opt/apertium/n/nb-nn.autogen.bin'
+alias b7='apertium-retxt'
+
+# Perl
+alias cpan="sudo perl -MCPAN -e shell"
+
 # Ruby
 alias irb="irb --readline -r irb/completion"
 alias ri="ri -Tf ansi"

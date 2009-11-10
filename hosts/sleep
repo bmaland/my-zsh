@@ -2,6 +2,7 @@
 
 export SDL_AUDIODRIVER="alsa"
 export CLASSPATH="/home/bjorn/java"
+export WEKAHOME=$CLASSPATH
 export PYTHONSTARTUP=${HOME}/.pystartup
 export CDPATH=".:/home/bjorn/Projects"
 export PATH="/usr/bin:/usr/local/bin:$PATH"
@@ -11,6 +12,8 @@ export LD_LIBRARY_PATH=/usr/local/lib
 export BROWSER="chromium-browser"
 
 alias -s {html,php,org,com,net}=$BROWSER
+
+alias vi=vim
 
 # disable ^s freeze
 stty -ixon
