@@ -28,10 +28,15 @@ if [[ $ANCIENT_ZSH != t ]]; then
   setopt INC_APPEND_HISTORY   # New history lines are added to the $HISTFILE as soon as they are entered
   setopt NO_GLOBAL_RCS        # Ignore /etc/zshrc etc
 
-# Autoload zsh modules when they are referenced
+  # Autoload zsh modules when they are referenced
   zmodload -a zsh/stat stat
   zmodload -a zsh/zpty zpty
   zmodload -a zsh/zprof zprof
+
+  autoload up-line-or-beginning-search
+  zle -N up-line-or-beginning-search
+  autoload down-line-or-beginning-search
+  zle -N down-line-or-beginning-search
 
   autoload -U zmv
   autoload -U compinit

@@ -5,6 +5,8 @@ bindkey -e # Force emacs editing mode
 bindkey ' ' magic-space    # also do history expansion on space, for i.e !:1
 bindkey '\C-r' history-incremental-search-backward
 bindkey '\C-xr' history-search-backward
+bindkey '\e[A' up-line-or-beginning-search
+bindkey '\e[B' down-line-or-beginning-search
 bindkey '\C-z' undo
 bindkey '\C-i' menu-complete
 bindkey '\C-u' reverse-menu-complete
