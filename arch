@@ -18,9 +18,9 @@ compdef _service service
 alias squ="pacman -Q|grep -i"
 alias sse="pacman -Ss |grep -i"
 alias ssi="pacman -Si"
-alias sin="sudo powerpill --aria2-clean --aria2-silent -S --needed"
+alias sin="sudo pacman -S --needed"
 alias sun="sudo pacman -Rs"
-alias sup="sudo powerpill -Syu"
+alias sup="sudo pacman -Syu"
 
 # yaourt
 alias yqu="yaourt -Q|grep -i"
