@@ -1,5 +1,4 @@
 # (-*- shell-script -*-)
 # Ubuntu specifics
 
-export PATH="$PATH:/var/lib/gems/1.8/bin"
 export JAVA_HOME=`readlink -f \`which javac\` | awk -Fbin '{print $1}'`

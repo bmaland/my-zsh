@@ -1,5 +1,2 @@
 # (-*- shell-script -*-)
 # Debian specifics
-
-alias cmb="sudo chown -R bjorn:bjorn"
-alias cmo="sudo chown -R obvdeploy:obvdeploy"
