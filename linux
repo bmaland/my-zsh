@@ -22,6 +22,7 @@ if [[ $DISTRO = "ubuntu" || $DISTRO = "debian" ]]; then # Set up support for apt
   # apt/aptitute
   alias squ="dpkg --get-selections|grep -v deinstall|grep -i"
   alias sse="apt-cache search"
+  alias ssi="aptitude show"
   alias sin="sudo aptitude install"
   alias sun="sudo aptitude remove"
   alias sup="sudo aptitude update && sudo aptitude dist-upgrade"

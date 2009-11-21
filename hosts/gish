@@ -1,3 +1,6 @@
 # (-*- shell-script -*-)
 
-export CDPATH="/home/bjorn/work:/home/bjorn/foss"
+export CDPATH=".:/home/bjorn/Projects"
+export CLASSPATH="/home/bjorn/java"
+
+alias -s {html,php,org,com,net}=$BROWSER
