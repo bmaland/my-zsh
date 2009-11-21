@@ -9,5 +9,7 @@ export CDPATH="/Users/bjorn/foss:/Users/bjorn/foss/ruby:/Users/bjorn/Webdev:/Use
 export ADAPTER="postgresql"
 export DATABASE="datamapper"
 export USERNAME="bjorn"
-export JAVA_HOME="/Library/Java/Home"
 
+export JAVA_HOME="/Library/Java/Home"
+export NUTCH_JAVA_HOME=$JAVA_HOME
+export CLASSPATH="$JRUBY_HOME/lib:/home/bjorn/src/java/apache-tomcat-6.0.20/bin:/home/bjorn/src/java/nutch-1.0:/home/bjorn/src/java/nutch-1.0/lib:$JAVA_HOME"

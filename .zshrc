@@ -63,4 +63,5 @@ chpwd() {
 set-title `pwd`
 
 # rvm-install added line:
-if [[ -s /home/bjorn/.rvm/scripts/rvm ]] && [[ $rvm_loaded_flag != 1 ]] ; then source /home/bjorn/.rvm/scripts/rvm ; fi
+if [[ -s ~/.rvm/scripts/rvm ]] && [[ $rvm_loaded_flag != 1 ]] ; then source ~/.rvm/scripts/rvm ; fi
+
