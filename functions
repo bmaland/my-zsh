@@ -60,18 +60,6 @@ set-program-title() {
   esac
 }
 
-# Convenience function for updating my dotfiles
-rcup() {
-  local pwd=$(pwd)
-  cd ~/.zsh
-  git pull
-  cd ~/.emacs.d
-  git pull
-  cd ~/dotfiles
-  git pull
-  cd $pwd
-}
-
 if [[ $ANCIENT_ZSH != t ]]; then
   # Quick dirchange
   rationalise-dot() {
